@@ -84,7 +84,7 @@ public class Engine {
         map.build(this.matrix);
         map.linkAll();
         
-        this.calcDistance(map.getNode(23,13), "pacman");
+        calcDistance(map.getNode(23,13), "pacman");
 
     }
 
