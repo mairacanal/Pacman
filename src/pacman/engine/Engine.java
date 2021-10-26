@@ -41,6 +41,7 @@ public class Engine {
     private void calcDistanceR(Node node, String key, LinkedList list){
         
     }
+    
     private void calcDistance(Node node, String key){
         
         LinkedList<Node> list = new LinkedList<>();
@@ -81,8 +82,7 @@ public class Engine {
 
         readMapFile();
         
-        map.build(this.matrix);
-        map.linkAll();
+        map.build(matrix);
         
         calcDistance(map.getNode(23,13), "pacman");
 

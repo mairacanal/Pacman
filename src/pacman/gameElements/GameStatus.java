@@ -1,12 +1,12 @@
-package pacman.engine;
+package pacman.gameElements;
 
 public class GameStatus {
     
-    private int level;
-    private int points;
-    private int lifes;
-    private int pacdots;
-    private boolean eatableGhosts;
+    static private int level;
+    static private int points;
+    static private int lifes;
+    static private int pacdots;
+    static private boolean eatableGhosts;
     
     private static GameStatus instance;
      
@@ -30,69 +30,69 @@ public class GameStatus {
         
     }
 
-    public int getLevel() {
+    public static int getLevel() {
         
         return level;
     
     }
 
-    public void nextLevel() {
+    public static void nextLevel() {
     
         level++;
     
     }
 
-    public int getPoints() {
+    public static int getPoints() {
     
         return points;
     
     }
 
-    public void addPoints(int points) {
+    public static void addPoints(int points) {
     
-        this.points += points;
+        GameStatus.points += points;
     
     }
 
-    public int getLifes() {
+    public static int getLifes() {
         
         return lifes;
     
     }
 
-    public void addLife() {
+    public static void addLife() {
     
         lifes++;
     
     }
     
-    public void loseLife() {
+    public static void loseLife() {
     
         lifes--;
     
     }
 
-    public int getPacdots() {
+    public static int getPacdots() {
     
         return pacdots;
     
     }
-
-    public void addPacdots(int pacdots) {
     
-        this.pacdots += pacdots;
+    public static void addPacdots(int pacdots) {
+    
+        GameStatus.pacdots += pacdots;
     
     }
 
-    public boolean isEatableGhosts() {
+    public static boolean isEatableGhosts() {
     
         return eatableGhosts;
     
     }
 
-    public void setEatableGhosts(boolean eatableGhosts) {
+    public static void setEatableGhosts(boolean eatableGhosts) {
     
-        this.eatableGhosts = eatableGhosts;
+        GameStatus.eatableGhosts = eatableGhosts;
     
     }
     

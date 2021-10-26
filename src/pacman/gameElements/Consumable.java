@@ -6,7 +6,7 @@ public class Consumable {
     private int id;
     
     Consumable(int id){
-        
+
         this.id = id;
         
         switch(id){
@@ -18,8 +18,8 @@ public class Consumable {
                 points = 50;
             }
             case(22): {//fruit
-                points = 100;//+ 200*GameStatus.level
-                //this.id += GameStatus.level%3
+                points = 200 * GameStatus.getLevel();
+                this.id += GameStatus.getLevel() % 3;
             }
             
         }
