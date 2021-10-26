@@ -4,7 +4,9 @@
  */
 package pacman;
 
-import pacman.Engine.*;
+import pacman.gameElements.Map;
+import pacman.engine.Engine;
+import pacman.render.Render;
 
 /**
  *
@@ -16,11 +18,15 @@ public class Pacman {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        Engine engine = new Engine();
-
-        engine.init();
-
+        
+        Map map = new Map();
+        
+        Engine engine = new Engine(map);
+        Render render = new Render(map);
+        
+        engine.init();              
+        render.drawMap();
+        
     }
     
 }
