@@ -5,7 +5,7 @@ public class Consumable {
     private int points;
     private int id;
     
-    public Consumable(int id){
+    Consumable(int id){
         
         this.id = id;
         

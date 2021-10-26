@@ -14,7 +14,7 @@ public class Node {
     private boolean canWalk;
     private int status;
     
-    public Node(int id, Consumable consumable){
+    Node(int id, Consumable consumable){
         
         this.id = id;
         this.consumable = consumable;

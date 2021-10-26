@@ -24,7 +24,7 @@ public class Engine {
 
         try {
 
-            File mapFile = new File("src/pacman/sources/map.txt");
+            File mapFile = new File("src/pacman/resources/map.txt");
             try (Scanner scan = new Scanner(mapFile)) {
                 for (int i = 0; i < 31; i++)
                     for (int j = 0; j < 28; j++)
