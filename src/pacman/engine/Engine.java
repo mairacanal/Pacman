@@ -2,6 +2,7 @@ package pacman.engine;
 
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
+import pacman.gameElements.GameConstants;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -12,6 +13,9 @@ public class Engine {
     private Map map;
     private int[][] matrix;
 
+    private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
+    private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
+
     public Engine(Map map) {
 
        this.map = map;
@@ -20,14 +24,14 @@ public class Engine {
 
     private void readMapFile() {
 
-        this.matrix = new int[31][28];
+        this.matrix = new int[BOARD_VERTICAL][BOARD_HORIZONTAL];
 
         try {
 
             File mapFile = new File("src/pacman/resources/map.txt");
             try (Scanner scan = new Scanner(mapFile)) {
-                for (int i = 0; i < 31; i++)
-                    for (int j = 0; j < 28; j++)
+                for (int i = 0; i < BOARD_VERTICAL; i++)
+                    for (int j = 0; j < BOARD_HORIZONTAL; j++)
                         matrix[i][j] = scan.nextInt();
             }
             
@@ -61,7 +65,7 @@ public class Engine {
             
             //int currDistance = currNode.distance;
             
-            for(Node nextNode : currNode.getNodes()){
+            for (Node nextNode : currNode.getNodes()){
                 
                 if(!nextNode.isCanWalk()) continue;
                 if(nextNode.getStatus() == -1){
@@ -76,6 +80,7 @@ public class Engine {
             }
             
         }
+
     }    
 
     public void init() {

@@ -11,13 +11,13 @@ public class Consumable {
         
         switch(id){
             
-            case(20): {//pacdot
+            case (GameConstants.PACDOT): {
                 points = 10;
             }
-            case(21): {//pill
+            case (GameConstants.PILL): {
                 points = 50;
             }
-            case(22): {//fruit
+            case (GameConstants.FRUIT): {
                 points = 200 * GameStatus.getLevel();
                 this.id += GameStatus.getLevel() % 3;
             }
