@@ -1,5 +1,7 @@
 package pacman.gameElements;
 
+import java.util.ArrayList;
+
 public class Blinky extends Ghost {
     
     Blinky(Node node) {
@@ -10,6 +12,20 @@ public class Blinky extends Ghost {
     }
     
     public void move() {
+
+        ArrayList<Node> nodes = this.node.getNodes();
+        Node nextNode = null;
+
+        for (Node node : nodes) {
+
+            if (nextNode == null)
+                nextNode = node;
+            else if (nextNode.getDistance("pacman") > node.getDistance("pacman") && node.getId() != GameConstants.BLOCKED) 
+                nextNode = node;
+
+        }
+
+        this.node = nextNode;
         
     }
     
