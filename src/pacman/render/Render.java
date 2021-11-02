@@ -1,5 +1,6 @@
 package pacman.render;
 
+import pacman.gameElements.GameConstants;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 import java.util.HashMap;
@@ -19,28 +20,28 @@ public class Render {
     
     private void pickPallete(){
         
-        this.pallete.put(0," ");
-        this.pallete.put(1,"▓▓");
-        this.pallete.put(10,"¢");
-        this.pallete.put(11,"B");
-        this.pallete.put(12,"P");
-        this.pallete.put(13,"K");
-        this.pallete.put(14,"C");
-        this.pallete.put(20,"·");
-        this.pallete.put(21,"¤");
-        this.pallete.put(22,"×");
+        this.pallete.put(GameConstants.PATH," ");
+        this.pallete.put(GameConstants.BLOCKED,"▓▓");
+        this.pallete.put(GameConstants.PACMAN,"¢");
+        this.pallete.put(GameConstants.BLINKY,"B");
+        this.pallete.put(GameConstants.PINKY,"P");
+        this.pallete.put(GameConstants.INKY,"K");
+        this.pallete.put(GameConstants.CLYDE,"C");
+        this.pallete.put(GameConstants.PACDOT,"·");
+        this.pallete.put(GameConstants.PILL,"¤");
+        this.pallete.put(GameConstants.FRUIT,"×");
         this.pallete.put(23,"×");
         this.pallete.put(24,"×");
-        this.pallete.put(30," ");
-        this.pallete.put(31,"-");        
+        this.pallete.put(GameConstants.HOME," ");
+        this.pallete.put(GameConstants.GATE,"-");        
         
     }
     
     public void drawMap(){
         
-        for (int i = 0; i < 31; i++){
+        for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++){
             
-            for (int j = 0; j < 28; j++){
+            for (int j = 0; j < GameConstants.BOARD_HORIZONTAL; j++){
                 
                 Node current = map.getNode(i,j);
                 
