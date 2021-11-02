@@ -9,7 +9,6 @@ public class Node {
     private ArrayList<Entity> entities;
     private HashMap<String, Integer> distances;
     private int id;    
-    private int distance;
     private Consumable consumable;
     private boolean canWalk;
     private int status;
@@ -21,7 +20,6 @@ public class Node {
         this.canWalk = (id != 1);
         this.nodes =  new ArrayList<>();
         this.entities =  new ArrayList<>();
-        this.distance = 0;
         this.distances = new HashMap<>();
         this.status = -1;
     

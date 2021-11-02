@@ -63,16 +63,13 @@ public class Engine {
             currNode.setStatus(1);
             int currDistance = currNode.getDistance(key);
             
-            //int currDistance = currNode.distance;
-            
             for (Node nextNode : currNode.getNodes()){
                 
-                if(!nextNode.isCanWalk()) continue;
-                if(nextNode.getStatus() == -1){
+                if (!nextNode.isCanWalk()) continue;
+                if (nextNode.getStatus() == -1) {
                    
                     nextNode.setStatus(0);
-                    nextNode.setDistance(key, currDistance +1);
-                    //nextNode.distance = currDistance +1;
+                    nextNode.setDistance(key, currDistance + 1);
                                       
                     list.addLast(nextNode);
                 }  
@@ -86,9 +83,7 @@ public class Engine {
     public void init() {
 
         readMapFile();
-        
         map.build(matrix);
-        
         calcDistance(map.getNode(23,13), "pacman");
 
     }
