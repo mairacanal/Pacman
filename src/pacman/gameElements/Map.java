@@ -30,7 +30,7 @@ public class Map {
         
         for(int i = 0; i < BOARD_VERTICAL; i++) {
             
-            for(int j = 0; j < BOARD_VERTICAL; j++) {
+            for(int j = 0; j < BOARD_HORIZONTAL; j++) {
                 
                 nodes[i][j].connect(nodes[(i + 1) % BOARD_VERTICAL][j]);           
                 nodes[i][j].connect(nodes[(i + BOARD_VERTICAL - 1) % BOARD_VERTICAL][j]);       
