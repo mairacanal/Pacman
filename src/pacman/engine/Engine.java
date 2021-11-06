@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class Engine {
 
     private Map map;
-    private int[][] matrix;
     private ArrayList<Entity> entities;
 
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
@@ -23,9 +22,9 @@ public class Engine {
 
     }
 
-    private void readMapFile() {
+    private int[][] readMapFile() {
 
-        this.matrix = new int[BOARD_VERTICAL][BOARD_HORIZONTAL];
+        int[][] matrix = new int[BOARD_VERTICAL][BOARD_HORIZONTAL];
 
         try {
 
@@ -40,10 +39,12 @@ public class Engine {
 
             System.out.println("An error occurred: " + e.getMessage());
         }
+
+        return matrix;
         
     }
 
-    private void buildMap() {
+    private void buildMap(int[][] matrix) {
 
         Entity entity;
         Node[][] nodes;
@@ -127,8 +128,10 @@ public class Engine {
 
     public void init() {
 
-        readMapFile();
-        buildMap();
+        int[][] matrix;
+
+        matrix = readMapFile();
+        buildMap(matrix);
         calculateDistance(map.getNode(23,13), "pacman");
 
     }
