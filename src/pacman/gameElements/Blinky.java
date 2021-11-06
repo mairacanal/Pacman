@@ -20,7 +20,7 @@ public class Blinky extends Ghost {
 
             if (nextNode == null)
                 nextNode = node;
-            else if (nextNode.getDistance("pacman") > node.getDistance("pacman") && node.isCanWalk()) 
+            else if (nextNode.isCanWalk() && nextNode.getDistance("pacman") > node.getDistance("pacman")) 
                 nextNode = node;
 
         }

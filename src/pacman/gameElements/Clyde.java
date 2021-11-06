@@ -13,12 +13,11 @@ public class Clyde extends Ghost {
     
     public void move() {
         
-        Node previousNode = null;
+        Node previousNode = node;
         ArrayList<Node> nodes = node.getNodes();
 
         while (!node.isCanWalk()) {
 
-            previousNode = node;
             node = nodes.get((int) (Math.random() * 3) + 1);
 
         }
