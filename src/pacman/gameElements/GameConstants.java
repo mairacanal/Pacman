@@ -20,6 +20,5 @@ public final class GameConstants {
 
     public static final int HOME = 30;
     public static final int GATE = 31;
-    public static final int WALL = 32;
     
 }
