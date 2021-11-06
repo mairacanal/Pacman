@@ -20,40 +20,40 @@ public class Render {
     
     private void pickPallete(){
         
-        this.pallete.put(GameConstants.PATH," ");
+        this.pallete.put(GameConstants.PATH,"  ");
         this.pallete.put(GameConstants.BLOCKED,"▓▓");
-        this.pallete.put(GameConstants.PACMAN,"¢");
-        this.pallete.put(GameConstants.BLINKY,"B");
-        this.pallete.put(GameConstants.PINKY,"P");
-        this.pallete.put(GameConstants.INKY,"K");
-        this.pallete.put(GameConstants.CLYDE,"C");
-        this.pallete.put(GameConstants.PACDOT,"·");
-        this.pallete.put(GameConstants.PILL,"¤");
-        this.pallete.put(GameConstants.FRUIT,"×");
-        this.pallete.put(23,"×");
-        this.pallete.put(24,"×");
-        this.pallete.put(GameConstants.HOME," ");
-        this.pallete.put(GameConstants.GATE,"-");        
+        this.pallete.put(GameConstants.PACMAN,"¢ ");
+        this.pallete.put(GameConstants.BLINKY,"B ");
+        this.pallete.put(GameConstants.PINKY,"P ");
+        this.pallete.put(GameConstants.INKY,"K ");
+        this.pallete.put(GameConstants.CLYDE,"C ");
+        this.pallete.put(GameConstants.PACDOT,"· ");
+        this.pallete.put(GameConstants.PILL,"¤ ");
+        this.pallete.put(GameConstants.FRUIT,"× ");
+        this.pallete.put(23,"× ");
+        this.pallete.put(24,"× ");
+        this.pallete.put(GameConstants.HOME,"  ");
+        this.pallete.put(GameConstants.GATE,"- ");        
         
     }
     
     public void drawMap(){
-        
+
         for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++){
             
             for (int j = 0; j < GameConstants.BOARD_HORIZONTAL; j++){
                 
                 Node current = map.getNode(i,j);
+                System.out.print(this.pallete.get(current.getId()));
                 
-                //int distance = this.map.nodes[i][j].distance;
-                if (current.getId() == 1)
-                    System.out.print(this.pallete.get(current.getId()));
-                else {
+                // if (current.getId() == 1)
+                //     System.out.print(this.pallete.get(current.getId()));
+                // else {
                     
-                    int distance = current.getDistance("pacman");
-                    System.out.print(String.format("%02d",distance));
+                //     int distance = current.getDistance("pacman");
+                //     System.out.print(String.format("%02d",distance));
                     
-                }
+                // }
                 
             }
             
