@@ -12,12 +12,24 @@ public class Node {
     private Consumable consumable;
     private boolean canWalk;
     private int status;
+
+    Node(int id) {
+
+        this.id = id;
+        this.consumable = null;
+        this.canWalk = false;
+        this.nodes =  new ArrayList<>();
+        this.entities =  new ArrayList<>();
+        this.distances = new HashMap<>();
+        this.status = -1;
+
+    }
     
     Node(int id, Consumable consumable){
         
         this.id = id;
         this.consumable = consumable;
-        this.canWalk = (id != 1);
+        this.canWalk = true;
         this.nodes =  new ArrayList<>();
         this.entities =  new ArrayList<>();
         this.distances = new HashMap<>();
@@ -25,6 +37,20 @@ public class Node {
     
     }
     
+    Node(int id, Entity entity){
+        
+        this.id = id;
+        this.consumable = null;
+        this.canWalk = true;
+        this.nodes =  new ArrayList<>();
+        this.entities =  new ArrayList<>();
+        this.distances = new HashMap<>();
+        this.status = -1;
+
+        this.entities.add(entity);
+    
+    }
+
     void connect(Node other){
         
         nodes.add(other);
@@ -55,6 +81,18 @@ public class Node {
         
     }
 
+    public void addEntity(Entity entity) {
+
+        this.entities.add(entity);
+
+    }
+
+    public void removeEntity(Entity entity) {
+
+        this.entities.remove(entity);
+
+    }
+
     public int getDistance(String key) {
         
         return distances.get(key);
@@ -78,16 +116,6 @@ public class Node {
         this.id = id;
         
     }
-
-    /*
-    public int getDistance() {
-        return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
-    */
 
     public Consumable getConsumable() {
         
