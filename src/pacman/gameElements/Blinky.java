@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Blinky extends Ghost {
     
-    Blinky(Node node) {
+    public Blinky(Node node) {
         
         // definir velocidade
         super(node, GameConstants.BLINKY, 0);

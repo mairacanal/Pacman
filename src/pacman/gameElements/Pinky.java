@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pinky extends Ghost {
     
-    Pinky(Node node) {
+    public Pinky(Node node) {
         
         // definir identificaçao e velocidade
         super(node, GameConstants.PINKY, 0);

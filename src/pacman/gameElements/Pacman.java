@@ -6,7 +6,7 @@ public class Pacman extends Entity {
     
     private String direction;
     
-    Pacman(Node node) {
+    public Pacman(Node node) {
         
         // definir identificaçao e velocidade
         super(node, GameConstants.PACMAN, 0);

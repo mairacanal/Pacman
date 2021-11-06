@@ -5,7 +5,7 @@ import java.lang.Math;
 
 public class Inky extends Ghost {
 
-    Inky(Node node) {
+    public Inky(Node node) {
         
         // definir identificaçao e velocidade
         super(node, GameConstants.INKY, 0);

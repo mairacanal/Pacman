@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 public class Clyde extends Ghost {
     
-    Clyde (Node node) {
+    public Clyde (Node node) {
         
         // definir velocidade
         super(node, GameConstants.CLYDE, 0);
