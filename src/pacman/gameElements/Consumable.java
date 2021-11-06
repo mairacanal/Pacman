@@ -5,21 +5,24 @@ public class Consumable {
     private int points;
     private int id;
     
-    Consumable(int id){
+    public Consumable(int id) {
 
         this.id = id;
         
-        switch(id){
+        switch (id){
             
             case (GameConstants.PACDOT): {
                 points = 10;
+                break;
             }
             case (GameConstants.PILL): {
                 points = 50;
+                break;
             }
             case (GameConstants.FRUIT): {
                 points = 200 * GameStatus.getLevel();
                 this.id += GameStatus.getLevel() % 3;
+                break;
             }
             
         }
