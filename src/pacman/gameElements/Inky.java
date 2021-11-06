@@ -14,13 +14,18 @@ public class Inky extends Ghost {
     
     public void move() {
 
+        Node previousNode = null;
         ArrayList<Node> nodes = node.getNodes();
 
         while (!node.isCanWalk()) {
 
+            previousNode = node;
             node = nodes.get((int) (Math.random() * 3) + 1);
 
         }
+
+        previousNode.removeEntity(this);
+        node.addEntity(this);
         
     }
     

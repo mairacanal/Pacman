@@ -6,7 +6,7 @@ public class Blinky extends Ghost {
     
     Blinky(Node node) {
         
-        // definir identificaçao e velocidade
+        // definir velocidade
         super(node, GameConstants.BLINKY, 0);
         
     }
@@ -20,12 +20,14 @@ public class Blinky extends Ghost {
 
             if (nextNode == null)
                 nextNode = node;
-            else if (nextNode.getDistance("pacman") > node.getDistance("pacman") && node.getId() != GameConstants.BLOCKED) 
+            else if (nextNode.getDistance("pacman") > node.getDistance("pacman") && node.isCanWalk()) 
                 nextNode = node;
 
         }
 
+        this.node.removeEntity(this);
         this.node = nextNode;
+        this.node.addEntity(this);
         
     }
     
