@@ -2,16 +2,19 @@ package pacman.engine;
 
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
+import pacman.gameElements.Entity;
 import pacman.gameElements.GameConstants;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Engine {
 
     private Map map;
     private int[][] matrix;
+    private ArrayList<Entity> entities;
 
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
     private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
@@ -29,11 +32,11 @@ public class Engine {
         try {
 
             File mapFile = new File("src/pacman/resources/map.txt");
-            try (Scanner scan = new Scanner(mapFile)) {
-                for (int i = 0; i < BOARD_VERTICAL; i++)
-                    for (int j = 0; j < BOARD_HORIZONTAL; j++)
-                        matrix[i][j] = scan.nextInt();
-            }
+            Scanner scan = new Scanner(mapFile);
+
+            for (int i = 0; i < BOARD_VERTICAL; i++)
+                for (int j = 0; j < BOARD_HORIZONTAL; j++)
+                    matrix[i][j] = scan.nextInt();
             
         } catch (FileNotFoundException e) {
 
@@ -41,12 +44,8 @@ public class Engine {
         }
         
     }
-    
-    private void calcDistanceR(Node node, String key, LinkedList list){
-        
-    }
-    
-    private void calcDistance(Node node, String key){
+
+    private void calculateDistance(Node node, String key){
         
         LinkedList<Node> list = new LinkedList<>();
         
@@ -54,7 +53,7 @@ public class Engine {
         node.setStatus(0);
         node.setDistance(key, 0);
         
-        while (list.size() > 0){
+        while (list.size() > 0) {
             
             Node currNode = list.pop();
             
@@ -84,7 +83,7 @@ public class Engine {
 
         readMapFile();
         map.build(matrix);
-        calcDistance(map.getNode(23,13), "pacman");
+        calculateDistance(map.getNode(23,13), "pacman");
 
     }
 
