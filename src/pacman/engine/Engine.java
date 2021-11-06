@@ -1,9 +1,6 @@
 package pacman.engine;
 
-import pacman.gameElements.Map;
-import pacman.gameElements.Node;
-import pacman.gameElements.Entity;
-import pacman.gameElements.GameConstants;
+import pacman.gameElements.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -22,6 +19,7 @@ public class Engine {
     public Engine(Map map) {
 
        this.map = map;
+       this.entities = new ArrayList<>();
 
     }
 
@@ -43,6 +41,54 @@ public class Engine {
             System.out.println("An error occurred: " + e.getMessage());
         }
         
+    }
+
+    private void buildMap() {
+
+        Entity entity;
+        Node[][] nodes;
+
+        nodes = new Node[BOARD_VERTICAL][BOARD_HORIZONTAL];
+
+        for (int i = 0; i < BOARD_VERTICAL; i++) {
+            for (int j = 0; j < BOARD_HORIZONTAL; j++) {
+                
+                int id = matrix[i][j];
+
+                if (id >= GameConstants.PACDOT && id <= GameConstants.FRUIT)
+                    nodes[i][j] =  new Node(id, new Consumable(id));
+                else 
+                    nodes[i][j] =  new Node(id);
+
+                switch (id) {
+                    case (GameConstants.PACMAN):
+                        entity = new Pacman(nodes[i][j]);
+                        break;
+                    case (GameConstants.BLINKY):
+                        entity = new Blinky(nodes[i][j]);
+                        break;
+                    case (GameConstants.PINKY):
+                        entity = new Pinky(nodes[i][j]);
+                        break;
+                    case (GameConstants.INKY):
+                        entity = new Inky(nodes[i][j]);
+                        break;
+                    case (GameConstants.CLYDE):
+                        entity = new Clyde(nodes[i][j]);
+                        break;
+                    default:
+                        entity = null;
+                        break;
+                }
+
+                if (entity != null)
+                    entities.add(entity);
+            
+            }
+        }
+
+        map.build(nodes);
+
     }
 
     private void calculateDistance(Node node, String key){
@@ -82,7 +128,7 @@ public class Engine {
     public void init() {
 
         readMapFile();
-        map.build(matrix);
+        buildMap();
         calculateDistance(map.getNode(23,13), "pacman");
 
     }

@@ -14,6 +14,21 @@ public class Map {
     
     }
     
+    private void linkAll(){
+        
+        for(int i = 0; i < BOARD_VERTICAL; i++) {
+            for(int j = 0; j < BOARD_HORIZONTAL; j++) {
+                
+                nodes[i][j].connect(nodes[(i + 1) % BOARD_VERTICAL][j]);           
+                nodes[i][j].connect(nodes[(i + BOARD_VERTICAL - 1) % BOARD_VERTICAL][j]);       
+                nodes[i][j].connect(nodes[i][(j + 1) % BOARD_HORIZONTAL]);        
+                nodes[i][j].connect(nodes[i][(j + BOARD_HORIZONTAL - 1) % BOARD_HORIZONTAL]); 
+                     
+            }
+        }
+        
+    }
+    
     public Node getNode(int i, int j) {
         
         return nodes[i][j];
@@ -26,36 +41,9 @@ public class Map {
     
     }
     
-    public void linkAll(){
+    public void build(Node[][] nodes){   
         
-        for(int i = 0; i < BOARD_VERTICAL; i++) {
-            
-            for(int j = 0; j < BOARD_HORIZONTAL; j++) {
-                
-                nodes[i][j].connect(nodes[(i + 1) % BOARD_VERTICAL][j]);           
-                nodes[i][j].connect(nodes[(i + BOARD_VERTICAL - 1) % BOARD_VERTICAL][j]);       
-                nodes[i][j].connect(nodes[i][(j + 1) % BOARD_HORIZONTAL]);        
-                nodes[i][j].connect(nodes[i][(j + BOARD_HORIZONTAL - 1) % BOARD_HORIZONTAL]); 
-                     
-            }
-            
-        }
-        
-    }
-    
-    public void build(int[][] matrix){   
-        
-        for (int i = 0; i < BOARD_VERTICAL; i++) {
-            
-            for (int j = 0; j < BOARD_HORIZONTAL; j++) {
-                
-                int id = matrix[i][j];
-                nodes[i][j] =  new Node(id, new Consumable(id));
-            
-            }
-            
-        }
-        
+        this.nodes = nodes;
         linkAll();
         
     }  

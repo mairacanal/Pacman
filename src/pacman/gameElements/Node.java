@@ -13,11 +13,11 @@ public class Node {
     private boolean canWalk;
     private int status;
 
-    Node(int id) {
+    public Node(int id) {
 
         this.id = id;
         this.consumable = null;
-        this.canWalk = false;
+        this.canWalk = (id != GameConstants.BLOCKED); // TODO: analisar como lidar com portao
         this.nodes =  new ArrayList<>();
         this.entities =  new ArrayList<>();
         this.distances = new HashMap<>();
@@ -25,7 +25,7 @@ public class Node {
 
     }
     
-    Node(int id, Consumable consumable){
+    public Node(int id, Consumable consumable){
         
         this.id = id;
         this.consumable = consumable;
@@ -37,20 +37,6 @@ public class Node {
     
     }
     
-    Node(int id, Entity entity){
-        
-        this.id = id;
-        this.consumable = null;
-        this.canWalk = true;
-        this.nodes =  new ArrayList<>();
-        this.entities =  new ArrayList<>();
-        this.distances = new HashMap<>();
-        this.status = -1;
-
-        this.entities.add(entity);
-    
-    }
-
     void connect(Node other){
         
         nodes.add(other);
