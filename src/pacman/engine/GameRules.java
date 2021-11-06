@@ -1,6 +1,16 @@
 package pacman.engine;
 
+import pacman.gameElements.GameStatus;
+
 public class GameRules {
+
+    private GameStatus gameStatus;
+
+    GameRules() {
+
+        gameStatus = GameStatus.getInstance();
+
+    }
     
     public void runAllRules() {
         

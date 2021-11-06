@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Engine {
 
     private Map map;
+    private GameLoop gameLoop;
+    private GameRules gameRules;
     private ArrayList<Entity> entities;
 
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
@@ -18,6 +20,8 @@ public class Engine {
     public Engine(Map map) {
 
        this.map = map;
+       this.gameLoop = new GameLoop();
+       this.gameRules = new GameRules();
        this.entities = new ArrayList<>();
 
     }
