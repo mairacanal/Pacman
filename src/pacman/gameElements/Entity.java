@@ -11,6 +11,8 @@ public abstract class Entity {
         this.node = node;
         this.type = type;
         this.speed = speed;
+
+        this.node.addEntity(this);
         
     }
 
