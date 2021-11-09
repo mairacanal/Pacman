@@ -99,11 +99,21 @@ public class Engine {
     private void calculateDistance(Node node, String key){
         
         LinkedList<Node> list = new LinkedList<>();
+
+        for (Node[] nodeRow : map.getNodes()) {
+
+            for (Node current : nodeRow) {
+
+                current.setStatus(-1);
+
+            }
+
+        }
         
         list.add(node);
         node.setStatus(0);
         node.setDistance(key, 0);
-        
+
         while (list.size() > 0) {
             
             Node currNode = list.pop();
@@ -115,7 +125,7 @@ public class Engine {
             
             for (Node nextNode : currNode.getNodes()){
                 
-                if (!nextNode.isCanWalk()) continue;
+                if (nextNode.getId() == GameConstants.BLOCKED) continue;
                 if (nextNode.getStatus() == -1) {
                    
                     nextNode.setStatus(0);
@@ -136,11 +146,20 @@ public class Engine {
 
         matrix = readMapFile();
         buildMap(matrix);
-        calculateDistance(map.getNode(23,13), "pacman");
+        
+        calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
+        calculateDistance(map.getNode(11, 13), "ghostSidewalk");
+
+        for (Entity entity : entities)
+            entity.born();
 
     }
 
     public void running() {
+
+        for (Entity entity : entities)
+            entity.move();
+        calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
 
     }
 
