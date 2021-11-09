@@ -44,16 +44,16 @@ public class Render {
             for (int j = 0; j < GameConstants.BOARD_HORIZONTAL; j++){
                 
                 Node current = map.getNode(i,j);
-                System.out.print(this.pallete.get(current.getId()));
                 
-                // if (current.getId() == 1)
-                //     System.out.print(this.pallete.get(current.getId()));
-                // else {
-                    
-                //     int distance = current.getDistance("pacman");
-                //     System.out.print(String.format("%02d",distance));
-                    
-                // }
+                if (!current.getEntities().isEmpty())
+                    System.out.print(this.pallete.get(current.getEntities().get(0).getId()));
+                else if (current.getConsumable() != null)
+                    System.out.print(this.pallete.get(current.getConsumable().getId()));
+                else if (current.getId() == GameConstants.BLOCKED || current.getId() == GameConstants.GATE)
+                    System.out.print(this.pallete.get(current.getId()));
+                else        
+                    System.out.print("  ");
+                    // System.out.print(String.format("%02d", current.getDistance("ghostSidewalk")));
                 
             }
             
