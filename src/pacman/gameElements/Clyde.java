@@ -1,30 +1,23 @@
 package pacman.gameElements;
 
-import java.util.ArrayList;
-import java.lang.Math;
 public class Clyde extends Ghost {
     
     public Clyde (Node node) {
         
         // definir velocidade
-        super(node, GameConstants.CLYDE, 0);
+        super(node, GameConstants.CLYDE, 0, GameConstants.LEFT);
         
     }
     
     public void move() {
+
+        if (isLeavingHome)
+            leavingHome();
+        else if (isChasing)
+            random();
+        else if (isGoingHome)
+            goingHome();
         
-        Node previousNode = node;
-        ArrayList<Node> nodes = node.getNodes();
-
-        while (!node.isCanWalk()) {
-
-            node = nodes.get((int) (Math.random() * 3) + 1);
-
-        }
-
-        previousNode.removeEntity(this);
-        node.addEntity(this);
-
     }
     
 }

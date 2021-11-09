@@ -1,34 +1,23 @@
 package pacman.gameElements;
 
-import java.util.ArrayList;
-
 public class Pinky extends Ghost {
     
     public Pinky(Node node) {
         
         // definir identificaçao e velocidade
-        super(node, GameConstants.PINKY, 0);
+        super(node, GameConstants.PINKY, 0, GameConstants.LEFT);
         
     }    
     
     public void move() {
 
-        ArrayList<Node> nodes = this.node.getNodes();
-        Node nextNode = null;
+        if (isLeavingHome)
+            leavingHome();
+        else if (isChasing)
+            chase();
+        else if (isGoingHome)
+            goingHome();
 
-        for (Node node : nodes) {
-
-            if (nextNode == null)
-                nextNode = node;
-            else if (nextNode.isCanWalk() && nextNode.getDistance("pacman") > node.getDistance("pacman")) 
-                nextNode = node;
-
-        }
-
-        this.node.removeEntity(this);
-        this.node = nextNode;
-        this.node.addEntity(this);
-        
     }
     
 }
