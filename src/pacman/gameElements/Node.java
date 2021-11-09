@@ -10,14 +10,12 @@ public class Node {
     private HashMap<String, Integer> distances;
     private int id;    
     private Consumable consumable;
-    private boolean canWalk;
     private int status;
 
     public Node(int id) {
 
         this.id = id;
         this.consumable = null;
-        this.canWalk = (id != GameConstants.BLOCKED); // TODO: analisar como lidar com portao
         this.nodes =  new ArrayList<>();
         this.entities =  new ArrayList<>();
         this.distances = new HashMap<>();
@@ -25,11 +23,10 @@ public class Node {
 
     }
     
-    public Node(int id, Consumable consumable){
+    public Node(int id, Consumable consumable) {
         
         this.id = id;
         this.consumable = consumable;
-        this.canWalk = true;
         this.nodes =  new ArrayList<>();
         this.entities =  new ArrayList<>();
         this.distances = new HashMap<>();
@@ -37,7 +34,7 @@ public class Node {
     
     }
     
-    void connect(Node other){
+    public void connect(Node other){
         
         nodes.add(other);
     
@@ -114,17 +111,15 @@ public class Node {
         this.consumable = consumable;
         
     }
+     
+    public boolean notForbiddenId(ArrayList<Integer> forbiddenIds) {
 
-    public boolean isCanWalk() {
-        
-        return canWalk;
-        
-    }
+        for (int id : forbiddenIds)
+            if (id == this.id)
+                return false;
 
-    public void setCanWalk(boolean canWalk) {
-        
-        this.canWalk = canWalk;
-        
+        return true;
+
     }
 
     public int getStatus() {
