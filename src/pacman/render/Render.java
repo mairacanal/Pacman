@@ -1,6 +1,7 @@
 package pacman.render;
 
 import pacman.gameElements.GameConstants;
+import pacman.gameElements.GameStatus;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 import java.util.HashMap;
@@ -61,6 +62,8 @@ public class Render {
             
         }  
         
+        System.out.println("Points: " + GameStatus.getPoints());
+
     }
     
 }
