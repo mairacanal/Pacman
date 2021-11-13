@@ -8,8 +8,8 @@ public class Node {
     private ArrayList<Node> nodes;
     private ArrayList<Entity> entities;
     private HashMap<String, Integer> distances;
-    private int id;    
     private Consumable consumable;
+    private int id;    
     private int status;
 
     public Node(int id) {
@@ -73,6 +73,26 @@ public class Node {
     public void removeEntity(Entity entity) {
 
         this.entities.remove(entity);
+
+    }
+    
+    public boolean hasPacman() {
+
+        for (Entity entity : entities)
+            if (entity.getId() == GameConstants.PACMAN)
+                return true;
+
+        return false;
+
+    }
+
+    public boolean hasGhost() {
+
+        for (Entity entity : entities)
+            if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.CLYDE) 
+                return true;
+
+        return false;
 
     }
 
