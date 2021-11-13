@@ -101,6 +101,10 @@ public abstract class Ghost extends Entity {
     
     public void die() {
         
+        isLeavingHome = false;
+        isChasing = false;
+        isGoingHome = true;
+
     }
     
 }
