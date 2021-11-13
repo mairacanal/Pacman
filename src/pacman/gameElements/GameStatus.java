@@ -2,33 +2,11 @@ package pacman.gameElements;
 
 public class GameStatus {
     
-    static private int level;
-    static private int points;
-    static private int lifes;
-    static private int pacdots;
-    static private boolean eatableGhosts;
-    
-    private static GameStatus instance;
-     
-    private GameStatus(){                       
-        
-        level = 1;
-        points = 0;
-        lifes = 3;
-        pacdots = 0;
-        eatableGhosts = false;
-        
-    }
-     
-    public static GameStatus getInstance() {
-        
-        if(instance == null){
-            instance = new GameStatus();
-        }
-        
-        return instance;
-        
-    }
+    static private int level = 1;
+    static private int points = 0;
+    static private int lifes = 3;
+    static private int pacdots = 0;
+    static private boolean eatableGhosts = false;
 
     public static int getLevel() {
         
@@ -81,6 +59,7 @@ public class GameStatus {
     public static void addPacdots(int pacdots) {
     
         GameStatus.pacdots += pacdots;
+        GameStatus.points += pacdots * 10;
     
     }
 
