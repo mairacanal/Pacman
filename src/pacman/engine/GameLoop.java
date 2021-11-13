@@ -1,16 +1,30 @@
 package pacman.engine;
 
+import java.util.ArrayList;
+import pacman.gameElements.Entity;
+
 public class GameLoop {
     
-    // TODO: a definir
-    private final int framerate = 30;
+    private ArrayList<Entity> entities;
     
-    GameLoop() {
+    GameLoop(ArrayList<Entity> entities) {
+
+        this.entities = entities;
         
+    }
+
+    public void init() {
+
+        for (Entity entity : entities)
+            entity.born();
+
     }
     
     public void loop() {
-        
+
+        for (Entity entity : entities)
+            entity.move();
+
     }
     
 }
