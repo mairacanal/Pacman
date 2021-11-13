@@ -14,18 +14,27 @@ public class Engine {
     private GameRules gameRules;
     private ArrayList<Entity> entities;
 
+    private final int framerate = 30;
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
     private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
 
+    /**
+     * 
+     * @param map
+     */
     public Engine(Map map) {
 
        this.map = map;
-       this.gameLoop = new GameLoop();
-       this.gameRules = new GameRules();
        this.entities = new ArrayList<>();
+       this.gameLoop = new GameLoop(entities);
+       this.gameRules = new GameRules(map);
 
     }
 
+    /**
+     * 
+     * @return
+     */
     private int[][] readMapFile() {
 
         int[][] matrix = new int[BOARD_VERTICAL][BOARD_HORIZONTAL];
@@ -48,6 +57,10 @@ public class Engine {
         
     }
 
+    /**
+     * 
+     * @param matrix
+     */
     private void buildMap(int[][] matrix) {
 
         Entity entity;
@@ -96,19 +109,18 @@ public class Engine {
 
     }
 
+    /**
+     * 
+     * @param node
+     * @param key
+     */
     private void calculateDistance(Node node, String key){
         
         LinkedList<Node> list = new LinkedList<>();
 
-        for (Node[] nodeRow : map.getNodes()) {
-
-            for (Node current : nodeRow) {
-
+        for (Node[] nodeRow : map.getNodes())
+            for (Node current : nodeRow)
                 current.setStatus(-1);
-
-            }
-
-        }
         
         list.add(node);
         node.setStatus(0);
@@ -121,7 +133,6 @@ public class Engine {
             if (currNode.getStatus() != 0) continue;
             
             currNode.setStatus(1);
-            int currDistance = currNode.getDistance(key);
             
             for (Node nextNode : currNode.getNodes()){
                 
@@ -129,9 +140,10 @@ public class Engine {
                 if (nextNode.getStatus() == -1) {
                    
                     nextNode.setStatus(0);
-                    nextNode.setDistance(key, currDistance + 1);
+                    nextNode.setDistance(key, currNode.getDistance(key) + 1);
                                       
                     list.addLast(nextNode);
+
                 }  
                 
             }
@@ -140,29 +152,48 @@ public class Engine {
 
     }    
 
+    /**
+     * 
+     */
+    private void resetMap() {
+
+        int[][] matrix = readMapFile();
+        
+        entities.clear();
+
+        buildMap(matrix);
+
+    }
+
+    /**
+     * 
+     */
     public void init() {
 
-        int[][] matrix;
-
-        matrix = readMapFile();
-        buildMap(matrix);
+        resetMap();
         
         calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
         calculateDistance(map.getNode(11, 13), "ghostSidewalk");
 
-        for (Entity entity : entities)
-            entity.born();
+        gameLoop.init();
 
     }
 
+    /**
+     * 
+     */
     public void running() {
 
-        for (Entity entity : entities)
-            entity.move();
+        gameLoop.loop();
+        gameRules.runAllRules();
+
         calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
 
     }
 
+    /**
+     * 
+     */
     public void exit() {
 
     }
