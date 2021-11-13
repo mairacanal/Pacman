@@ -1,22 +1,27 @@
 package pacman.engine;
 
+import pacman.gameElements.GameConstants;
 import pacman.gameElements.GameStatus;
+import pacman.gameElements.Map;
+import pacman.gameElements.Node;
 
 public class GameRules {
 
-    private GameStatus gameStatus;
+    private Map map;
+    private Node[][] nodes;
 
-    GameRules() {
+    GameRules(Map map) {
 
-        gameStatus = GameStatus.getInstance();
+        this.map = map;
 
     }
     
     public void runAllRules() {
+
+        nodes = map.getNodes();
         
         // TODO: avaliar se essa é a melhor ordem
         eatPacdot();
-        allPacdotsWereEaten();
         eatPill();    
         finishPillPower();
         eatFruit();
@@ -29,20 +34,38 @@ public class GameRules {
         
     }
     
-    private void allPacdotsWereEaten() {
-        
-    }
-    
-    // TODO: esse método é realmente necessário?
-    private void allPillsWereEaten() {
-        
-    }
-    
     private void eatPill() {
+
+        for (Node[] rowNodes : nodes) {
+            for (Node node : rowNodes) {
+                if (node.hasPacman()) {
+                    if (node.getConsumable() != null && node.getConsumable().getId() == GameConstants.PILL) {
+
+                        node.setConsumable(null);
+                        GameStatus.addPoints(50);
+                        GameStatus.setEatableGhosts(true);
+
+                    }
+                }
+            }
+        }
         
     }
     
     private void eatPacdot() {
+
+        for (Node[] rowNodes : nodes) {
+            for (Node node : rowNodes) {
+                if (node.hasPacman()) {
+                    if (node.getConsumable() != null && node.getConsumable().getId() == GameConstants.PACDOT) {
+
+                        node.setConsumable(null);
+                        GameStatus.addPacdots(1);
+
+                    }
+                }
+            }
+        }
         
     }
     
@@ -51,6 +74,8 @@ public class GameRules {
     }
         
     private void finishPillPower() {
+
+        GameStatus.setEatableGhosts(false);
         
     }
     
@@ -59,10 +84,34 @@ public class GameRules {
     }
     
     private void eatGhost() {
+
+        for (Node[] rowNodes : nodes) {
+            for (Node node : rowNodes) {
+                if (GameStatus.isEatableGhosts()) {
+                    if (node.hasPacman() && node.hasGhost()) {
+
+                        
+
+                    }
+                }
+            }
+        }
         
     }
     
     private void loseLife() {
+
+        for (Node[] rowNodes : nodes) {
+            for (Node node : rowNodes) {
+                if (GameStatus.isEatableGhosts()) {
+                    if (node.hasPacman() && node.hasGhost()) {
+
+                        
+
+                    }
+                }
+            }
+        }
         
     }
     
