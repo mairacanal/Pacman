@@ -3,7 +3,6 @@ package pacman.engine;
 import pacman.gameElements.*;
 import java.util.LinkedList;
 import java.util.ArrayList;
-
 import java.util.concurrent.TimeUnit;
 
 public class Engine {
@@ -100,22 +99,20 @@ public class Engine {
 
         }
 
+        // TODO: Clyde não mata o Pacman
         for (Entity entity : entities)
             entity.move();
         gameRules.runAllRules();
 
-        if (GameStatus.isResetGame()) {
-
+        if (GameStatus.isResetGame())
             for (Entity entity : entities)
                 entity.born();
-            GameStatus.setResetGame(false);
-
-        } else if (GameStatus.isGameOver()) {
-
-            GameStatus.setGameOver(false);
+        else if (GameStatus.isGameOver())
             exit();
+        else if (GameStatus.isNextLevel())
+            init();
 
-        }
+        GameStatus.resetFlags();
 
         calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
 
