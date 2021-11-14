@@ -1,19 +1,27 @@
 package pacman.gameElements;
 
+/**
+ * 
+ */
 public class Map {
     
     private Node[][] nodes;
-    private boolean modified;
 
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
     private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
     
+    /**
+     * 
+     */
     public Map(){
         
         this.nodes = new Node[BOARD_VERTICAL][BOARD_HORIZONTAL];
     
     }
     
+    /**
+     * 
+     */
     private void linkAll(){
         
         for(int i = 0; i < BOARD_VERTICAL; i++) {
@@ -29,18 +37,32 @@ public class Map {
         
     }
     
+    /**
+     * 
+     * @param i
+     * @param j
+     * @return
+     */
     public Node getNode(int i, int j) {
         
         return nodes[i][j];
         
     }
         
+    /**
+     * 
+     * @return
+     */
     public Node[][] getNodes() {
         
         return nodes;
     
     }
     
+    /**
+     * 
+     * @param nodes
+     */
     public void build(Node[][] nodes){   
         
         this.nodes = nodes;

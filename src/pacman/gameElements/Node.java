@@ -3,6 +3,9 @@ package pacman.gameElements;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * 
+ */
 public class Node {
     
     private ArrayList<Node> nodes;
@@ -12,6 +15,10 @@ public class Node {
     private int id;    
     private int status;
 
+    /**
+     * 
+     * @param id
+     */
     public Node(int id) {
 
         this.id = id;
@@ -23,6 +30,11 @@ public class Node {
 
     }
     
+    /**
+     * 
+     * @param id
+     * @param consumable
+     */
     public Node(int id, Consumable consumable) {
         
         this.id = id;
@@ -34,48 +46,80 @@ public class Node {
     
     }
     
+    /**
+     * 
+     * @param other
+     */
     public void connect(Node other){
         
         nodes.add(other);
     
     }
 
+    /**
+     * 
+     * @return
+     */
     public ArrayList<Node> getNodes() {
         
         return nodes;
     
     }
 
+    /**
+     * 
+     * @param nodes
+     */
     public void setNodes(ArrayList<Node> nodes) {
         
         this.nodes = nodes;
         
     }
 
+    /**
+     * 
+     * @return
+     */
     public ArrayList<Entity> getEntities() {
         
         return entities;
         
     }
 
+    /**
+     * 
+     * @param entities
+     */
     public void setEntities(ArrayList<Entity> entities) {
         
         this.entities = entities;
         
     }
 
+    /**
+     * 
+     * @param entity
+     */
     public void addEntity(Entity entity) {
 
         this.entities.add(entity);
 
     }
 
+    /**
+     * 
+     * @param entity
+     */
     public void removeEntity(Entity entity) {
 
         this.entities.remove(entity);
 
     }
     
+    /**
+     * 
+     * @return
+     */
     public boolean hasPacman() {
 
         for (Entity entity : entities)
@@ -86,6 +130,10 @@ public class Node {
 
     }
 
+    /**
+     * 
+     * @return
+     */
     public boolean hasGhost() {
 
         for (Entity entity : entities)
@@ -96,42 +144,43 @@ public class Node {
 
     }
 
+    /**
+     * 
+     * @param key
+     * @return
+     */
     public int getDistance(String key) {
         
         return distances.get(key);
     
     }
 
+    /**
+     * 
+     * @param key
+     * @param distance
+     */
     public void setDistance(String key, int distance) {
         
         distances.put(key, distance);
     
     }    
 
+    /**
+     * 
+     * @return
+     */
     public int getId() {
         
         return id;
         
     }
 
-    public void setId(int id) {
-        
-        this.id = id;
-        
-    }
-
-    public Consumable getConsumable() {
-        
-        return consumable;
-        
-    }
-
-    public void setConsumable(Consumable consumable) {
-        
-        this.consumable = consumable;
-        
-    }
-     
+    /**
+     * 
+     * @param forbiddenIds
+     * @return
+     */
     public boolean notForbiddenId(ArrayList<Integer> forbiddenIds) {
 
         for (int id : forbiddenIds)
@@ -142,12 +191,40 @@ public class Node {
 
     }
 
+    /**
+     * 
+     * @return
+     */
+    public Consumable getConsumable() {
+        
+        return consumable;
+        
+    }
+
+    /**
+     * 
+     * @param consumable
+     */
+    public void setConsumable(Consumable consumable) {
+        
+        this.consumable = consumable;
+        
+    }
+
+    /**
+     * 
+     * @return
+     */
     public int getStatus() {
         
         return status;
         
     }
 
+    /**
+     * 
+     * @param status
+     */
     public void setStatus(int status) {
         
         this.status = status;

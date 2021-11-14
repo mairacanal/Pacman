@@ -3,18 +3,33 @@ package pacman.gameElements;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * 
+ */
 public abstract class Ghost extends Entity {
 
     protected boolean isChasing;
     protected boolean isLeavingHome;
     protected boolean isGoingHome;
     
+    /**
+     * 
+     * @param node
+     * @param type
+     * @param speed
+     * @param direction
+     */
     Ghost(Node node, int type, int speed, int direction) {
         
         super(node, type, speed, direction);
     
     }
 
+    /**
+     * 
+     * @param label
+     * @param ids
+     */
     private void moveNodeByDistance(String label, ArrayList<Integer> ids) {
 
         ArrayList<Node> nodes = this.node.getNodes();
@@ -35,6 +50,9 @@ public abstract class Ghost extends Entity {
 
     }
 
+    /**
+     * 
+     */
     protected void leavingHome() {
 
         ArrayList<Integer> id = new ArrayList<>();
@@ -52,10 +70,16 @@ public abstract class Ghost extends Entity {
 
     }
 
+    /**
+     * 
+     */
     protected void goingHome() {
 
     }
 
+    /**
+     * 
+     */
     protected void chase() {
 
         ArrayList<Integer> id = new ArrayList<>();
@@ -67,6 +91,9 @@ public abstract class Ghost extends Entity {
 
     }
 
+    /**
+     * 
+     */
     protected void random() {
 
         Random rand = new Random();
@@ -91,6 +118,9 @@ public abstract class Ghost extends Entity {
 
     }
     
+    /**
+     * 
+     */
     public void born() {
 
         isLeavingHome = true;
@@ -99,6 +129,9 @@ public abstract class Ghost extends Entity {
 
     }
     
+    /**
+     * 
+     */
     public void die() {
         
         isLeavingHome = false;

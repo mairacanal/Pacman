@@ -7,12 +7,19 @@ public class GameLoop {
     
     private ArrayList<Entity> entities;
     
+    /**
+     * 
+     * @param entities
+     */
     GameLoop(ArrayList<Entity> entities) {
 
         this.entities = entities;
         
     }
 
+    /**
+     * 
+     */
     public void init() {
 
         for (Entity entity : entities)
@@ -20,6 +27,9 @@ public class GameLoop {
 
     }
     
+    /**
+     * 
+     */
     public void loop() {
 
         for (Entity entity : entities)

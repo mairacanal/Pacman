@@ -6,11 +6,18 @@ import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 import java.util.HashMap;
 
+/**
+ * 
+ */
 public class Render {
     
     private Map map;
     private HashMap<Integer, String> pallete;
     
+    /**
+     * 
+     * @param map
+     */
     public Render(Map map) {
         
         this.map = map;
@@ -19,6 +26,9 @@ public class Render {
     
     }
     
+    /**
+     * 
+     */
     private void pickPallete(){
         
         this.pallete.put(GameConstants.PATH,"  ");
@@ -38,7 +48,10 @@ public class Render {
         
     }
     
-    public void drawMap(){
+    /**
+     * 
+     */
+    public void draw(){
 
         for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++){
             

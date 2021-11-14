@@ -1,5 +1,8 @@
 package pacman.gameElements;
 
+/**
+ * 
+ */
 public final class GameConstants {
 
     public static final int DOWN = 0;
@@ -26,6 +29,11 @@ public final class GameConstants {
     public static final int HOME = 30;
     public static final int GATE = 31;
 
+    /**
+     * 
+     * @param direction
+     * @return
+     */
     public static int oppositeDirection(int direction) {
 
         int newDirection = UP;

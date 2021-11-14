@@ -1,10 +1,17 @@
 package pacman.gameElements;
 
+/**
+ * 
+ */
 public class Consumable {
     
     private int points;
     private int id;
     
+    /**
+     * 
+     * @param id
+     */
     public Consumable(int id) {
 
         this.id = id;
@@ -29,24 +36,40 @@ public class Consumable {
     
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getPoints() {
         
         return points;
         
     }
 
+    /**
+     * 
+     * @param points
+     */
     public void setPoints(int points) {
         
         this.points = points;
         
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getId() {
         
         return id;
         
     }
 
+    /**
+     * 
+     * @param id
+     */
     public void setId(int id) {
         
         this.id = id;

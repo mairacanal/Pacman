@@ -1,14 +1,24 @@
 package pacman.gameElements;
 
+/**
+ * 
+ */
 public class Pinky extends Ghost {
     
+    /**
+     * 
+     * @param node
+     */
     public Pinky(Node node) {
         
-        // definir identificaçao e velocidade
+        // definir velocidade
         super(node, GameConstants.PINKY, 0, GameConstants.LEFT);
         
     }    
     
+    /**
+     * 
+     */
     public void move() {
 
         if (isLeavingHome)

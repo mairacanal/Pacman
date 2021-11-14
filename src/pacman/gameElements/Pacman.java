@@ -3,20 +3,29 @@ package pacman.gameElements;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * 
+ */
 public class Pacman extends Entity {
     
     public Pacman(Node node) {
         
-        // definir identificaçao e velocidade
+        // definir velocidade
         super(node, GameConstants.PACMAN, 0, GameConstants.LEFT);
         
     }
     
+    /**
+     * 
+     */
     public void born() {
 
     }
     
     // TODO: se mover por meio de entrada de teclado
+    /**
+     * 
+     */
     public void move() {
 
         Random rand = new Random();
@@ -41,6 +50,9 @@ public class Pacman extends Entity {
         
     }
     
+    /**
+     * 
+     */
     public void die() {
         
     }

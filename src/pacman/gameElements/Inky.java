@@ -1,7 +1,14 @@
 package pacman.gameElements;
 
+/**
+ * 
+ */
 public class Inky extends Ghost {
 
+    /**
+     * 
+     * @param node
+     */
     public Inky(Node node) {
         
         // definir identificaçao e velocidade
@@ -9,6 +16,9 @@ public class Inky extends Ghost {
         
     }
     
+    /**
+     * 
+     */
     public void move() {
 
         if (isLeavingHome)
