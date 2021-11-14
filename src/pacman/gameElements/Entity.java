@@ -5,7 +5,8 @@ package pacman.gameElements;
  */
 public abstract class Entity {
     
-    protected Node node;
+    protected Node currentNode;
+    protected Node initialNode;
     protected int id;
     protected int speed;
     protected int direction;
@@ -19,12 +20,13 @@ public abstract class Entity {
      */
     Entity(Node node, int id, int speed, int direction) {
         
-        this.node = node;
+        this.currentNode = node;
+        this.initialNode = node;
         this.id = id;
         this.speed = speed;
         this.direction = direction;
 
-        this.node.addEntity(this);
+        this.currentNode.addEntity(this);
         
     }
 
@@ -58,7 +60,7 @@ public abstract class Entity {
      */
     public Node getNode() {
 
-        return node;
+        return currentNode;
 
     }
 
@@ -68,7 +70,7 @@ public abstract class Entity {
      */
     public void setNode(Node node) {
 
-        this.node = node;
+        this.currentNode = node;
 
     }
     

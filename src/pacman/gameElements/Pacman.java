@@ -8,10 +8,10 @@ import java.util.Random;
  */
 public class Pacman extends Entity {
     
-    public Pacman(Node node) {
+    public Pacman(Node currentNode) {
         
         // definir velocidade
-        super(node, GameConstants.PACMAN, 0, GameConstants.LEFT);
+        super(currentNode, GameConstants.PACMAN, 0, GameConstants.LEFT);
         
     }
     
@@ -19,6 +19,10 @@ public class Pacman extends Entity {
      * 
      */
     public void born() {
+
+        currentNode.removeEntity(this);
+        initialNode.addEntity(this);
+        currentNode = initialNode;
 
     }
     
@@ -29,8 +33,8 @@ public class Pacman extends Entity {
     public void move() {
 
         Random rand = new Random();
-        Node previousNode = node;
-        ArrayList<Node> nodes = node.getNodes();
+        Node previousNode = currentNode;
+        ArrayList<Node> currentNodes = currentNode.getNodes();
         ArrayList<Integer> id = new ArrayList<>();
         int newDirection;
 
@@ -40,13 +44,13 @@ public class Pacman extends Entity {
         do {
 
             newDirection = rand.nextInt(4);
-            node = nodes.get(newDirection);
+            currentNode = currentNodes.get(newDirection);
 
-        } while (!node.notForbiddenId(id) || newDirection == GameConstants.oppositeDirection(direction));
+        } while (!currentNode.notForbiddenId(id) || newDirection == GameConstants.oppositeDirection(direction));
 
         direction = newDirection;
         previousNode.removeEntity(this);
-        node.addEntity(this);
+        currentNode.addEntity(this);
         
     }
     
