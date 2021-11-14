@@ -60,6 +60,7 @@ public class GameRules {
                     }
 
                     node.setConsumable(null);
+                    return;
                 }
             }
         }
@@ -110,8 +111,11 @@ public class GameRules {
                 if (!GameStatus.isEatableGhosts()) {
                     if (node.hasPacman() && node.hasGhost()) {
                         
+                        System.out.println("MORRI");
                         GameStatus.setResetGame(true);
                         GameStatus.loseLife();
+
+                        return;
 
                     }
                 }
@@ -145,6 +149,9 @@ public class GameRules {
     private void nextLevel() {
         
         if (GameStatus.getPacdots() == 240) {
+
+            GameStatus.resetPacdots();
+            GameStatus.setNextLevel(true);
 
         }
         
