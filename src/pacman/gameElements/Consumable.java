@@ -1,5 +1,6 @@
 package pacman.gameElements;
 
+import pacman.engine.GameStatus;
 /**
  * 
  */

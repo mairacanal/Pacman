@@ -1,7 +1,6 @@
 package pacman.engine;
 
 import pacman.gameElements.GameConstants;
-import pacman.gameElements.GameStatus;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 
@@ -31,10 +30,8 @@ public class GameRules {
         nodes = map.getNodes();
         
         // TODO: avaliar se essa é a melhor ordem
-        eatPacdot();
-        eatPill();    
+        eat();
         finishPillPower();
-        eatFruit();
         eatGhost();
         createFruit();
         addLife();
@@ -43,53 +40,30 @@ public class GameRules {
         endGame();
         
     }
-    
-    /**
-     * 
-     */
-    private void eatPill() {
+
+    private void eat() {
 
         for (Node[] rowNodes : nodes) {
             for (Node node : rowNodes) {
-                if (node.hasPacman()) {
-                    if (node.getConsumable() != null && node.getConsumable().getId() == GameConstants.PILL) {
+                if (node.hasPacman() && node.getConsumable() != null) {
 
-                        node.setConsumable(null);
-                        GameStatus.addPoints(50);
-                        GameStatus.setEatableGhosts(true);
+                    GameStatus.addPoints(node.getConsumable().getPoints());
 
+                    switch (node.getConsumable().getId()) {
+                        case (GameConstants.PACDOT): {
+                            GameStatus.addPacdots(1);
+                            break;
+                        } case (GameConstants.PILL): {
+                            GameStatus.setEatableGhosts(true);
+                            break;
+                        }
                     }
+
+                    node.setConsumable(null);
                 }
             }
         }
-        
-    }
-    
-    /**
-     * 
-     */
-    private void eatPacdot() {
 
-        for (Node[] rowNodes : nodes) {
-            for (Node node : rowNodes) {
-                if (node.hasPacman()) {
-                    if (node.getConsumable() != null && node.getConsumable().getId() == GameConstants.PACDOT) {
-
-                        node.setConsumable(null);
-                        GameStatus.addPacdots(1);
-
-                    }
-                }
-            }
-        }
-        
-    }
-    
-    /**
-     * 
-     */
-    private void eatFruit() {
-        
     }
         
     /**
@@ -118,7 +92,6 @@ public class GameRules {
                 if (GameStatus.isEatableGhosts()) {
                     if (node.hasPacman() && node.hasGhost()) {
 
-                        
 
                     }
                 }
@@ -134,10 +107,11 @@ public class GameRules {
 
         for (Node[] rowNodes : nodes) {
             for (Node node : rowNodes) {
-                if (GameStatus.isEatableGhosts()) {
+                if (!GameStatus.isEatableGhosts()) {
                     if (node.hasPacman() && node.hasGhost()) {
-
                         
+                        GameStatus.setResetGame(true);
+                        GameStatus.loseLife();
 
                     }
                 }
@@ -151,12 +125,17 @@ public class GameRules {
      */
     private void addLife() {
         
+        if (GameStatus.getPoints() == 10000)
+            GameStatus.addLife();
     }
     
     /**
      * 
      */
     private void endGame() {
+
+        if (GameStatus.getLifes() == 0)
+            GameStatus.setGameOver(true);
         
     }
     
@@ -164,6 +143,10 @@ public class GameRules {
      * 
      */
     private void nextLevel() {
+        
+        if (GameStatus.getPacdots() == 240) {
+
+        }
         
     }
     
