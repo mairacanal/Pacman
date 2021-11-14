@@ -1,6 +1,9 @@
 package pacman.engine;
 
-import pacman.gameElements.*;
+import pacman.gameElements.Map;
+import pacman.gameElements.Entity;
+import pacman.gameElements.Node;
+import pacman.gameElements.GameConstants;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
