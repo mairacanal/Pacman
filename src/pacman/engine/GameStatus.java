@@ -8,6 +8,7 @@ public class GameStatus {
     static private int pacdots = 0;
     static private boolean eatableGhosts = false;
     static private boolean resetGame = false;
+    static private boolean nextLevel = false;
     static private boolean gameOver = false;
 
     /**
@@ -99,6 +100,15 @@ public class GameStatus {
 
     /**
      * 
+     */
+    public static void resetPacdots() {
+
+        GameStatus.pacdots = 0;
+
+    }
+
+    /**
+     * 
      * @return
      */
     public static boolean isEatableGhosts() {
@@ -141,6 +151,26 @@ public class GameStatus {
      * 
      * @return
      */
+    public static boolean isNextLevel() {
+    
+        return nextLevel;
+    
+    }
+
+    /**
+     * 
+     * @param gameOver
+     */
+    public static void setNextLevel(boolean nextLevel) {
+    
+        GameStatus.nextLevel = nextLevel;
+    
+    }
+
+    /**
+     * 
+     * @return
+     */
     public static boolean isGameOver() {
     
         return gameOver;
@@ -154,7 +184,19 @@ public class GameStatus {
     public static void setGameOver(boolean gameOver) {
     
         GameStatus.gameOver = gameOver;
+
+    }
     
+
+    /**
+     * 
+     */
+    public static void resetFlags()  {
+
+        resetGame = false;
+        nextLevel = false;
+        gameOver = false;
+
     }
 
 }
