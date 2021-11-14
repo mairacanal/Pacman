@@ -1,4 +1,4 @@
-package pacman.gameElements;
+package pacman.engine;
 
 public class GameStatus {
     
@@ -7,6 +7,8 @@ public class GameStatus {
     static private int lifes = 3;
     static private int pacdots = 0;
     static private boolean eatableGhosts = false;
+    static private boolean resetGame = false;
+    static private boolean gameOver = false;
 
     /**
      * 
@@ -92,7 +94,6 @@ public class GameStatus {
     public static void addPacdots(int pacdots) {
     
         GameStatus.pacdots += pacdots;
-        GameStatus.points += pacdots * 10;
     
     }
 
@@ -116,4 +117,44 @@ public class GameStatus {
     
     }
     
+    /**
+     * 
+     * @return
+     */
+    public static boolean isResetGame() {
+    
+        return resetGame;
+    
+    }
+
+    /**
+     * 
+     * @param resetGame
+     */
+    public static void setResetGame(boolean resetGame) {
+    
+        GameStatus.resetGame = resetGame;
+    
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public static boolean isGameOver() {
+    
+        return gameOver;
+    
+    }
+
+    /**
+     * 
+     * @param gameOver
+     */
+    public static void setGameOver(boolean gameOver) {
+    
+        GameStatus.gameOver = gameOver;
+    
+    }
+
 }
