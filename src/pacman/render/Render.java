@@ -1,7 +1,7 @@
 package pacman.render;
 
+import pacman.engine.GameStatus;
 import pacman.gameElements.GameConstants;
-import pacman.gameElements.GameStatus;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class Render {
         this.pallete.put(23,"× ");
         this.pallete.put(24,"× ");
         this.pallete.put(GameConstants.HOME,"  ");
-        this.pallete.put(GameConstants.GATE,"- ");        
+        this.pallete.put(GameConstants.GATE,"--");        
         
     }
     
@@ -52,6 +52,9 @@ public class Render {
      * 
      */
     public void draw(){
+
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
 
         for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++){
             
@@ -67,7 +70,6 @@ public class Render {
                     System.out.print(this.pallete.get(current.getId()));
                 else        
                     System.out.print("  ");
-                    // System.out.print(String.format("%02d", current.getDistance("ghostSidewalk")));
                 
             }
             
@@ -76,6 +78,7 @@ public class Render {
         }  
         
         System.out.println("Points: " + GameStatus.getPoints());
+        System.out.println("Lifes: " + GameStatus.getLifes());
 
     }
     
