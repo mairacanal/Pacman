@@ -5,7 +5,8 @@ import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 
 /**
- * 
+ * Classe que agrupa todas as regras do jogo, contabilizando os pontos do usuário, as vidas
+ * e o nível do jogo.
  */
 public class GameRules {
 
@@ -13,8 +14,8 @@ public class GameRules {
     private Node[][] nodes;
 
     /**
-     * 
-     * @param map
+     * Construtor padrão da classe GameRules
+     * @param map Mapa do jogo, compartilhado entre a Engine e o Render
      */
     GameRules(Map map) {
 
@@ -23,13 +24,12 @@ public class GameRules {
     }
     
     /**
-     * 
+     * Método para execução de todas as regras do jogo
      */
     public void runAllRules() {
 
         nodes = map.getNodes();
         
-        // TODO: avaliar se essa é a melhor ordem
         eat();
         finishPillPower();
         eatGhost();
@@ -41,6 +41,11 @@ public class GameRules {
         
     }
 
+    /**
+     * Método em que o Pacman come um consumível, como um Pacdot, uma pílula de energia
+     * ou uma fruta. Além de causar um efeito visual, o método também contabiliza o número
+     * de pontos do consumível.
+     */
     private void eat() {
 
         for (Node[] rowNodes : nodes) {
@@ -68,7 +73,8 @@ public class GameRules {
     }
         
     /**
-     * 
+     * TODO
+     * Método que encerra o poder da pílula de energia após um determinado tempo.
      */
     private void finishPillPower() {
 
@@ -77,14 +83,19 @@ public class GameRules {
     }
     
     /**
-     * 
+     * TODO
+     * Método que cria, visualmente, uma fruta no mapa após o usuário comer 70 pacdots e
+     * novamente, após mais 100 pacdots.
      */
     private void createFruit() {
         
     }
     
     /**
-     * 
+     * TODO
+     * Método que possibilita o Pacman comer os fantasmas durante a duração do poder da 
+     * pílula de energia. Além disso, contabiliza os pontos que o jogador ganha ao comer
+     * um fantasma.
      */
     private void eatGhost() {
 
@@ -102,7 +113,8 @@ public class GameRules {
     }
     
     /**
-     * 
+     * Método que subtrai uma vida do jogador quando o Pacman toca um fantasma sem o poder
+     * da pílula de energia.
      */
     private void loseLife() {
 
@@ -111,7 +123,6 @@ public class GameRules {
                 if (!GameStatus.isEatableGhosts()) {
                     if (node.hasPacman() && node.hasGhost()) {
                         
-                        System.out.println("MORRI");
                         GameStatus.setResetGame(true);
                         GameStatus.loseLife();
 
@@ -125,7 +136,7 @@ public class GameRules {
     }
     
     /**
-     * 
+     * Método que adiciona uma vida extra quando o jogador atinge 10000 pontos.
      */
     private void addLife() {
         
@@ -134,7 +145,7 @@ public class GameRules {
     }
     
     /**
-     * 
+     * Método que encerra o jogo quando o jogador perde todas as vidas.
      */
     private void endGame() {
 
@@ -144,13 +155,15 @@ public class GameRules {
     }
     
     /**
-     * 
+     * Método que avança um nível no jogo, reiniciando o tabuleiro para iniciar
+     * um novo nível.
      */
     private void nextLevel() {
         
         if (GameStatus.getPacdots() == 240) {
 
             GameStatus.resetPacdots();
+            GameStatus.nextLevel();
             GameStatus.setNextLevel(true);
 
         }
