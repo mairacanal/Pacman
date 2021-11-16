@@ -3,6 +3,7 @@ package pacman;
 import pacman.gameElements.Map;
 import pacman.engine.Engine;
 import pacman.render.Render;
+import java.util.Scanner;
 
 public class Pacman {
 
@@ -15,7 +16,23 @@ public class Pacman {
         
         Engine engine = new Engine(map);
         Render render = new Render(map);
-        
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("O jogo apresentado é uma versão beta da versão final do jogo");
+        System.out.println("Entre todas as funcionalidades que devem ser implementadas, as seguintes funcionalidades ainda não funcionam:");
+        System.out.println("- O Pacman move-se de forma aleatória no tabuleiro, sem input do usuário");
+        System.out.println("- O Blinky e o Pinky ainda movem-se na mesma velocidade");
+        System.out.println("- Apesar do Pacman comer as pílulas de energia, elas ainda não funcionam");
+        System.out.println("- Frutas bônus ainda não aparecem no tabuleiro");
+        System.out.println("As demais funcionalidade já funcionam como esperado, apesar de alguns pequenos bugs que serão consertados para parte 2");
+        System.out.println("IMPORTANTE: O professor Robson autorizou a entrega do jogo dessa forma");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Clique em Enter para continuar");
+
+        scan.nextLine();
+
         engine.init();              
         render.draw();
 
@@ -25,30 +42,6 @@ public class Pacman {
             render.draw();
 
         }
-
-        // Scanner scan = new Scanner(System.in);
-
-        // System.out.println("--------------------------- MENU ---------------------------");
-        // System.out.println("Legenda:");
-        // System.out.println("B, C, P, K = Fantasmas");
-        // System.out.println("¢ = Pacman");
-        // System.out.println("▓▓ = Parede");
-        // System.out.println("Opções:");
-        // System.out.println("(1) Teste da primeira etapa do projeto");
-        // System.out.println("(2) Versão beta do jogo (algumas funcionalidades ainda não estão implementadas)");
-        // System.out.println("------------------------------------------------------------");
-        // System.out.println("Escolha sua opção: ");
-
-        // switch (scan.nextInt()) {
-        //     case (1): {
-        //         break;
-        //     } case (2): {
-        //         break;
-        //     } default: {
-        //         System.out.println("Opção inválida!");
-        //         break;
-        //     }
-        // }
 
     }
     
