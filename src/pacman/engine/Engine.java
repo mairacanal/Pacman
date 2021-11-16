@@ -8,6 +8,11 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Classe que representa a engine de funcionamento do jogo, sendo responsável pela movimentação
+ * dos personagens em cada turno, pela velocidade do jogo, pela contagem de pontos e pelo cálculo
+ * das distâncias entre os nós do mapa.
+ */
 public class Engine {
 
     private Map map;
@@ -17,8 +22,8 @@ public class Engine {
     private final int framerate = 1;
 
     /**
-     * 
-     * @param map
+     * Construtor padrão da classe Engine
+     * @param map Mapa do jogo, compartilhado com o Render
      */
     public Engine(Map map) {
 
@@ -30,9 +35,9 @@ public class Engine {
 
 
     /**
-     * 
-     * @param node
-     * @param key
+     * Método para cálculo de distância de todos os nós do mapa até um nó especificado
+     * @param node Nó referência para o cálculo de distância
+     * @param key Chave da distância na estrutura de dados map de cada nó
      */
     private void calculateDistance(Node node, String key){
         
@@ -73,7 +78,8 @@ public class Engine {
     }    
 
     /**
-     * 
+     * Método de inicialização da engine do jogo, com construção do mapa, cálculo inicial de 
+     * distâncias e método de inicialização das entidades.
      */
     public void init() {
 
@@ -88,7 +94,8 @@ public class Engine {
     }
 
     /**
-     * 
+     * Método que executa a lógica do jogo, movendo os personagens, aplicando as regras do jogo
+     * e recalculando as distâncias.
      */
     public void running() {
 
@@ -102,7 +109,7 @@ public class Engine {
 
         }
 
-        // TODO: Clyde não mata o Pacman
+        // FIX ME: Clyde não mata o Pacman
         for (Entity entity : entities)
             entity.move();
         gameRules.runAllRules();
@@ -122,7 +129,7 @@ public class Engine {
     }
 
     /**
-     * 
+     * Método que encerra a engine, mostrando a pontuação final do usuário e encerrando o jogo.
      */
     public void exit() {
 
