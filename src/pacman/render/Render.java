@@ -31,35 +31,20 @@ public class Render {
      */
     private void pickPallete(){
 
-        this.pallete.put(GameConstants.PATH,   "   " + "\u001B[0m");
-        this.pallete.put(GameConstants.BLOCKED,"\u001B[34m" + "▓▓▓" + "\u001B[0m");
-        this.pallete.put(GameConstants.PACMAN, "\u001B[33m" + " ¢ " + "\u001B[0m");
-        this.pallete.put(GameConstants.BLINKY, "\u001B[31m" + " B " + "\u001B[0m");
-        this.pallete.put(GameConstants.PINKY,  "\u001B[35m" + " P " + "\u001B[0m");
-        this.pallete.put(GameConstants.INKY,   "\u001B[36m" + " K " + "\u001B[0m");
-        this.pallete.put(GameConstants.CLYDE,  "\u001B[37m" + " C " + "\u001B[0m");
-        this.pallete.put(GameConstants.PACDOT, "\u001B[37m" + " · " + "\u001B[0m");
-        this.pallete.put(GameConstants.PILL,   "\u001B[37m" + " ¤ " + "\u001B[0m");
-        this.pallete.put(GameConstants.FRUIT,  "\u001B[31m" + " × " + "\u001B[0m");
-        this.pallete.put(23,                   " × " + "\u001B[0m");
-        this.pallete.put(24,                   " × " + "\u001B[0m");
-        this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "   " + "\u001B[0m");
-        this.pallete.put(GameConstants.GATE,   "\u001B[34m" + "---" + "\u001B[0m");
-        
-        // this.pallete.put(GameConstants.PATH,"  ");
-        // this.pallete.put(GameConstants.BLOCKED,"▓▓");
-        // this.pallete.put(GameConstants.PACMAN,"¢ ");
-        // this.pallete.put(GameConstants.BLINKY,"B ");
-        // this.pallete.put(GameConstants.PINKY,"P ");
-        // this.pallete.put(GameConstants.INKY,"K ");
-        // this.pallete.put(GameConstants.CLYDE,"C ");
-        // this.pallete.put(GameConstants.PACDOT,"· ");
-        // this.pallete.put(GameConstants.PILL,"¤ ");
-        // this.pallete.put(GameConstants.FRUIT,"× ");
-        // this.pallete.put(23,"× ");
-        // this.pallete.put(24,"× ");
-        // this.pallete.put(GameConstants.HOME,"  ");
-        // this.pallete.put(GameConstants.GATE,"--");        
+        this.pallete.put(GameConstants.PATH,   "  " + "\u001B[0m");
+        this.pallete.put(GameConstants.BLOCKED,"\u001B[34m" + "▓▓" + "\u001B[0m");
+        this.pallete.put(GameConstants.PACMAN, "\u001B[33m" + "¢ " + "\u001B[0m");
+        this.pallete.put(GameConstants.BLINKY, "\u001B[31m" + "B " + "\u001B[0m");
+        this.pallete.put(GameConstants.PINKY,  "\u001B[35m" + "P " + "\u001B[0m");
+        this.pallete.put(GameConstants.INKY,   "\u001B[36m" + "I " + "\u001B[0m");
+        this.pallete.put(GameConstants.CLYDE,  "\u001B[37m" + "C " + "\u001B[0m");
+        this.pallete.put(GameConstants.PACDOT, "\u001B[37m" + "· " + "\u001B[0m");
+        this.pallete.put(GameConstants.PILL,   "\u001B[37m" + "¤ " + "\u001B[0m");
+        this.pallete.put(GameConstants.FRUIT,  "\u001B[31m" + "× " + "\u001B[0m");
+        this.pallete.put(23,                   "× " + "\u001B[0m");
+        this.pallete.put(24,                   "× " + "\u001B[0m");
+        this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "  " + "\u001B[0m");
+        this.pallete.put(GameConstants.GATE,   "\u001B[34m" + "--" + "\u001B[0m");
         
     }
     
