@@ -1,23 +1,25 @@
 package pacman.gameElements;
 
 /**
- * 
+ * Classe que representa um elemento do jogo, o fantasma Blinky 
  */
 public class Blinky extends Ghost {
     
     /**
-     * 
-     * @param node
+     * TODO: definir a velocidade do fantasma
+     * Construtor padrão da classe Blinky
+     * @param node Nó em que o fantasma nasce
      */
     public Blinky(Node node) {
         
-        // definir velocidade
         super(node, GameConstants.BLINKY, 0, GameConstants.RIGHT);
         
     }
     
     /**
-     * 
+     * Método que movimenta o fantasma de acordo do modo em que o
+     * fantasma está, ou seja, se ele está saindo da casa, perseguindo
+     * o Pacman ou voltando para casa.
      */
     public void move() {
 
