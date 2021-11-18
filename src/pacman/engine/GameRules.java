@@ -56,7 +56,7 @@ public class GameRules {
 
                     switch (node.getConsumable().getId()) {
                         case (GameConstants.PACDOT): {
-                            GameStatus.addPacdots(1);
+                            GameStatus.addPacdot();
                             break;
                         } case (GameConstants.PILL): {
                             GameStatus.setEatableGhosts(true);
