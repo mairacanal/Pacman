@@ -2,7 +2,8 @@ package pacman.gameElements;
 
 import pacman.engine.GameStatus;
 /**
- * 
+ * Classe que representa qualquer consumível do jogo, ou seja, qualquer
+ * objeto que o Pacman possa consumir e ganhar pontos
  */
 public class Consumable {
     
@@ -10,8 +11,8 @@ public class Consumable {
     private int id;
     
     /**
-     * 
-     * @param id
+     * Construtor padrão da classe Consumable
+     * @param id Identificador do consumível
      */
     public Consumable(int id) {
 
@@ -38,8 +39,9 @@ public class Consumable {
     }
 
     /**
-     * 
-     * @return
+     * Método getter do atributo points
+     * @return Retorna o número de pontos que o Pacman ganha quando
+     * come um consumível 
      */
     public int getPoints() {
         
@@ -48,8 +50,8 @@ public class Consumable {
     }
 
     /**
-     * 
-     * @param points
+     * Método setter do atributo points
+     * @param points Número de pontos que o consumível equivale
      */
     public void setPoints(int points) {
         
@@ -58,8 +60,8 @@ public class Consumable {
     }
 
     /**
-     * 
-     * @return
+     * Método getter do atributo id
+     * @return Retorna o número de identificação do consumível
      */
     public int getId() {
         
@@ -68,8 +70,8 @@ public class Consumable {
     }
 
     /**
-     * 
-     * @param id
+     * Método setter do atributo id
+     * @param id Número de identificação do consumível
      */
     public void setId(int id) {
         
