@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
- * 
+ * Classe que representa um elemento do jogo, o map (ou tabuleiro)
  */
 public class Map {
     
@@ -17,7 +17,7 @@ public class Map {
     private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
     
     /**
-     * 
+     * Construtor padrão da classe Map
      */
     public Map(){
         
@@ -28,8 +28,9 @@ public class Map {
     
     
     /**
-     * 
-     * @return
+     * Método que lê o arquivo que o possui o mapa com identificadores e
+     * transforma-o em uma matriz de inteiros
+     * @return Matriz de inteiros com os identificadores do elementos
      */
     private int[][] readMapFile() {
 
@@ -54,7 +55,8 @@ public class Map {
     }
 
     /**
-     * 
+     * Método que conecta todos os nós do mapa, possibilitando o cálculo de distâncias
+     * e a movimentação no mapa
      */
     private void linkAll(){
         
@@ -72,8 +74,9 @@ public class Map {
     }
 
     /**
-     * 
-     * @param matrix
+     * Método que constroi um mapa de nós a partir da matriz de identificadores, posicionando
+     * as entidades e comestíveis no tabuleiro
+     * @return Array de entidades que existem no tabuleiro
      */
     public ArrayList<Entity> build() {
 
@@ -118,10 +121,10 @@ public class Map {
     }
     
     /**
-     * 
-     * @param i
-     * @param j
-     * @return
+     * Método getter de um nó do mapa
+     * @param i Index da linha
+     * @param j Index da coluna
+     * @return Nó da linha i e coluna j do mapa
      */
     public Node getNode(int i, int j) {
         
@@ -130,8 +133,8 @@ public class Map {
     }
         
     /**
-     * 
-     * @return
+     * Método getter de todos os nós do mapa
+     * @return Matriz de nós
      */
     public Node[][] getNodes() {
         
