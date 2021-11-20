@@ -1,7 +1,8 @@
 package pacman.gameElements;
 
 /**
- * 
+ * Classe abstrata que representa uma entidade do jogo, ou seja, um elemento do jogo
+ * que se move
  */
 public abstract class Entity {
     
@@ -12,11 +13,11 @@ public abstract class Entity {
     protected int direction;
     
     /**
-     * 
-     * @param node
-     * @param id
-     * @param speed
-     * @param direction
+     * Construtor padrão da classe abstrata Entity
+     * @param node Nó em que a Entidade inicia o jogo
+     * @param id Número identificador da Entidade
+     * @param speed Velocidade da Entidade
+     * @param direction Direção da Entidade
      */
     Entity(Node node, int id, int speed, int direction) {
         
@@ -30,13 +31,25 @@ public abstract class Entity {
         
     }
 
+    /**
+     * Método abstrato responsável pelo movimento da Entidade
+     */
     abstract public void move();
+
+    /**
+     * Método abstrato responsável pela iniciação da Entidade, ou seja,
+     * posiciona-lo no nó adequado com o estado adequado
+     */
     abstract public void born();
+
+    /**
+     * Método abstrato responsável pela "morte" da Entidade
+     */
     abstract public void die();
 
     /**
-     * 
-     * @return
+     * Método getter do atributo id 
+     * @return Número identificador da Entidade
      */
     public int getId() {
 
@@ -45,18 +58,8 @@ public abstract class Entity {
     }
 
     /**
-     * 
-     * @param id
-     */
-    public void setId(int id) {
-
-        this.id = id;
-
-    }
-
-    /**
-     * 
-     * @return
+     * Método getter do atributo node
+     * @return Nó em que a Entidade encontra-se
      */
     public Node getNode() {
 
@@ -65,8 +68,8 @@ public abstract class Entity {
     }
 
     /**
-     * 
-     * @param node
+     * Método setter do atributo node
+     * @param node Nó em que a Entidade deve se encontra
      */
     public void setNode(Node node) {
 

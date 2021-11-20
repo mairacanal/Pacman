@@ -1,6 +1,7 @@
 package pacman.gameElements;
 
 import pacman.engine.GameStatus;
+
 /**
  * Classe que representa qualquer consumível do jogo, ou seja, qualquer
  * objeto que o Pacman possa consumir e ganhar pontos
