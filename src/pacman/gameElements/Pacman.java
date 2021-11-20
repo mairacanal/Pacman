@@ -4,19 +4,23 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * 
+ * Classe que representa um elemento do jogo, o Pacman
  */
 public class Pacman extends Entity {
     
+    /**
+     * TODO: definir a velocidade do Pacman
+     * Construtor padrão da classe Pacman
+     * @param currentNode Nó em que o Pacman nasce
+     */
     public Pacman(Node currentNode) {
         
-        // definir velocidade
         super(currentNode, GameConstants.PACMAN, 0, GameConstants.LEFT);
         
     }
     
     /**
-     * 
+     * Método que inicializa o Pacman no nó adequado
      */
     public void born() {
 
@@ -26,9 +30,9 @@ public class Pacman extends Entity {
 
     }
     
-    // TODO: se mover por meio de entrada de teclado
     /**
-     * 
+     * TODO: mover-se por entrada de teclado
+     * Método que move o Pacman no tabuleiro aleatoriamente
      */
     public void move() {
 
@@ -55,7 +59,8 @@ public class Pacman extends Entity {
     }
     
     /**
-     * 
+     * TODO
+     * Método que "mata" o Pacman
      */
     public void die() {
         
