@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * 
+ * Classe que representa um nó no tabuleiro
  */
 public class Node {
     
@@ -16,8 +16,8 @@ public class Node {
     private int status;
 
     /**
-     * 
-     * @param id
+     * Construtor padrão da classe Node
+     * @param id Número identificador do nó
      */
     public Node(int id) {
 
@@ -31,9 +31,9 @@ public class Node {
     }
     
     /**
-     * 
-     * @param id
-     * @param consumable
+     * Construtor alternativo da classe Node
+     * @param id Número identificador do nó
+     * @param consumable Consumível que existe no nó
      */
     public Node(int id, Consumable consumable) {
         
@@ -47,8 +47,8 @@ public class Node {
     }
     
     /**
-     * 
-     * @param other
+     * Método que conecta dois nós
+     * @param other Nó a ser conectado
      */
     public void connect(Node other){
         
@@ -57,8 +57,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @return
+     * Método getter do atributo nodes
+     * @return Array de nós conectados
      */
     public ArrayList<Node> getNodes() {
         
@@ -67,18 +67,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @param nodes
-     */
-    public void setNodes(ArrayList<Node> nodes) {
-        
-        this.nodes = nodes;
-        
-    }
-
-    /**
-     * 
-     * @return
+     * Método getter do atributo entities
+     * @return Array de entidades existentes no nó
      */
     public ArrayList<Entity> getEntities() {
         
@@ -87,8 +77,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @param entities
+     * Método setter do atributo entities
+     * @param entities Array de entidades que devem existir no nó
      */
     public void setEntities(ArrayList<Entity> entities) {
         
@@ -97,8 +87,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @param entity
+     * Método que adiciona uma entidade no nó
+     * @param entity Entidade a ser adicionada no nó
      */
     public void addEntity(Entity entity) {
 
@@ -107,8 +97,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @param entity
+     * Método que remove uma entidade do nó
+     * @param entity Entidade a ser removida do nó
      */
     public void removeEntity(Entity entity) {
 
@@ -117,8 +107,8 @@ public class Node {
     }
     
     /**
-     * 
-     * @return
+     * Método que averigua se o Pacman está no nó
+     * @return Retorna true, se o nó possuir o Pacman. Caso contrário, retorna false.
      */
     public boolean hasPacman() {
 
@@ -131,8 +121,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @return
+     * Método que averigua se há um fantasma está no nó
+     * @return Retorna true, se o nó possuir um fantasma. Caso contrário, retorna false.
      */
     public boolean hasGhost() {
 
@@ -145,9 +135,9 @@ public class Node {
     }
 
     /**
-     * 
-     * @param key
-     * @return
+     * Método getter do atributo distance
+     * @param key Chave da distância na estrutura de dados
+     * @return Distância do nó até um ponto calculado
      */
     public int getDistance(String key) {
         
@@ -156,9 +146,9 @@ public class Node {
     }
 
     /**
-     * 
-     * @param key
-     * @param distance
+     * Método setter do atributo distance
+     * @param key Chave da distância na estrutura de dados
+     * @param distance Distância do nó até um ponto calculado
      */
     public void setDistance(String key, int distance) {
         
@@ -167,8 +157,8 @@ public class Node {
     }    
 
     /**
-     * 
-     * @return
+     * Método getter do atributo id
+     * @return Número identificador do nó
      */
     public int getId() {
         
@@ -177,9 +167,10 @@ public class Node {
     }
 
     /**
-     * 
-     * @param forbiddenIds
-     * @return
+     * Método que checa se o nó pertence a uma lista de identificadores proibidos
+     * @param forbiddenIds Array de identificadores proibidos
+     * @return Retorna true, se o nó não pertence a lista de identificadores proibidos.
+     * Caso contrário, retorna false.
      */
     public boolean notForbiddenId(ArrayList<Integer> forbiddenIds) {
 
@@ -192,8 +183,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @return
+     * Método getter do atributo consumable
+     * @return Consumível existente no nó
      */
     public Consumable getConsumable() {
         
@@ -202,8 +193,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @param consumable
+     * Método setter do atributo consumable
+     * @param consumable Consumível que deve existir no nó
      */
     public void setConsumable(Consumable consumable) {
         
@@ -212,8 +203,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @return
+     * Método getter do atributo status
+     * @return Status do nó
      */
     public int getStatus() {
         
@@ -222,8 +213,8 @@ public class Node {
     }
 
     /**
-     * 
-     * @param status
+     * Método setter do atributo nó
+     * @param status Novo status do nó
      */
     public void setStatus(int status) {
         
