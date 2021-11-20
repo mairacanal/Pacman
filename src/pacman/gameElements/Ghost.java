@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * 
+ * Classe abstrata que representa um fantasma no jogo, implementando as características
+ * comuns a um fantasma
  */
 public abstract class Ghost extends Entity {
 
@@ -13,22 +14,23 @@ public abstract class Ghost extends Entity {
     protected boolean isGoingHome;
     
     /**
-     * 
-     * @param currentNode
-     * @param type
-     * @param speed
-     * @param direction
+     * Construtor padrão da classe abstrata Entity
+     * @param currentNode Nó em que a Entidade inicia o jogo
+     * @param id Número identificador da Entidade
+     * @param speed Velocidade da Entidade
+     * @param direction Direção da Entidade
      */
-    Ghost(Node currentNode, int type, int speed, int direction) {
+    Ghost(Node currentNode, int id, int speed, int direction) {
         
-        super(currentNode, type, speed, direction);
+        super(currentNode, id, speed, direction);
     
     }
 
     /**
-     * 
-     * @param label
-     * @param ids
+     * Método que move um fantasma para o nó mais próximo de um ponto
+     * definido pela label
+     * @param label Chave da distância na estrutura de dados map de cada nó
+     * @param ids Array de números identificadores que o fantasma não pode estar
      */
     private void moveNodeByDistance(String label, ArrayList<Integer> ids) {
 
@@ -51,7 +53,7 @@ public abstract class Ghost extends Entity {
     }
 
     /**
-     * 
+     * Método que move o fantasma para fora da casa de forma coordenada
      */
     protected void leavingHome() {
 
@@ -71,14 +73,16 @@ public abstract class Ghost extends Entity {
     }
 
     /**
-     * 
+     * TODO
+     * Método que move o fantasma de volta para casa, após o Pacman comer o 
+     * fantasma
      */
     protected void goingHome() {
 
     }
 
     /**
-     * 
+     * Método que move o fantasma perseguindo o Pacman
      */
     protected void chase() {
 
@@ -92,7 +96,7 @@ public abstract class Ghost extends Entity {
     }
 
     /**
-     * 
+     * Método que move o fantasma de forma aleatória
      */
     protected void random() {
 
@@ -119,7 +123,8 @@ public abstract class Ghost extends Entity {
     }
     
     /**
-     * 
+     * Método que inicializa o fantasma na posição adequada e coloca o fantasma no estado
+     * adequado
      */
     public void born() {
 
@@ -134,7 +139,7 @@ public abstract class Ghost extends Entity {
     }
     
     /**
-     * 
+     * Método que mata o fantasma, colocando ele no estado de voltar para casa
      */
     public void die() {
         
