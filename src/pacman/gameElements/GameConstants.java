@@ -1,7 +1,9 @@
 package pacman.gameElements;
 
 /**
- * 
+ * Classe que abriga todas as constantes do jogo, como número de linhas
+ * do tabuleiro, número de identificação das Entidades e dos Consumíveis
+ * e também número de identificação da direção no mapa
  */
 public final class GameConstants {
 
@@ -30,9 +32,9 @@ public final class GameConstants {
     public static final int GATE = 31;
 
     /**
-     * 
-     * @param direction
-     * @return
+     * Método responsável por retornar a direção oposta a uma direção
+     * @param direction Direção de uma Entidade
+     * @return Direção oposta ao argumento direction
      */
     public static int oppositeDirection(int direction) {
 
