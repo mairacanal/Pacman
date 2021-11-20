@@ -7,7 +7,7 @@ import pacman.gameElements.Node;
 import java.util.HashMap;
 
 /**
- * 
+ * Classe que renderiza a interface gráfica do jogo
  */
 public class Render {
     
@@ -15,8 +15,8 @@ public class Render {
     private HashMap<Integer, String> pallete;
     
     /**
-     * 
-     * @param map
+     * Construtor padrão da classe Render
+     * @param map Mapa do jogo
      */
     public Render(Map map) {
         
@@ -27,7 +27,8 @@ public class Render {
     }
     
     /**
-     * 
+     * Método que define a paleta de correspondência entre símbolos e identificadores
+     * do jogo
      */
     private void pickPallete(){
 
@@ -49,7 +50,7 @@ public class Render {
     }
     
     /**
-     * 
+     * Método que desenha a interface gráfica do jogo
      */
     public void draw(){
 
