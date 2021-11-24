@@ -1,3 +1,8 @@
+/**
+ * @file Blinky.java
+ * @author Maíra Canal (N USP: 11819403)
+ */
+
 package pacman.gameElements;
 
 /**

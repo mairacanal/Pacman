@@ -1,3 +1,8 @@
+/**
+ * @file Consumable.java
+ * @author Maíra Canal (N USP: 11819403)
+ */
+
 package pacman.gameElements;
 
 import pacman.engine.GameStatus;

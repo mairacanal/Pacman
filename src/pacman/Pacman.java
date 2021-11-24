@@ -26,7 +26,7 @@ public class Pacman {
         System.out.println("- O Blinky e o Pinky ainda movem-se na mesma velocidade");
         System.out.println("- Apesar do Pacman comer as pílulas de energia, elas ainda não funcionam");
         System.out.println("- Frutas bônus ainda não aparecem no tabuleiro");
-        System.out.println("As demais funcionalidade já funcionam como esperado, apesar de alguns pequenos bugs que serão consertados para parte 2");
+        System.out.println("As demais funcionalidades já funcionam como esperado, apesar de alguns pequenos bugs que serão consertados para parte 2");
         System.out.println("IMPORTANTE: O professor Robson autorizou a entrega do jogo dessa forma");
         System.out.println("------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Clique em Enter para continuar");

@@ -1,3 +1,8 @@
+/**
+ * @file GameRules.java
+ * @author Maíra Canal (N USP: 11819403)
+ */
+
 package pacman.engine;
 
 import pacman.gameElements.GameConstants;

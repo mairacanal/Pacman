@@ -1,3 +1,8 @@
+/**
+ * @file Map.java
+ * @author Maíra Canal (N USP: 11819403)
+ */
+
 package pacman.gameElements;
 
 import java.io.File;
