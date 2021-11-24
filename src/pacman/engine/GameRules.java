@@ -11,7 +11,6 @@ import pacman.gameElements.Node;
 public class GameRules {
 
     private Map map;
-    private Node[][] nodes;
 
     /**
      * Construtor padrão da classe GameRules
@@ -28,8 +27,6 @@ public class GameRules {
      */
     public void runAllRules() {
 
-        nodes = map.getNodes();
-        
         eat();
         finishPillPower();
         eatGhost();
@@ -48,7 +45,7 @@ public class GameRules {
      */
     private void eat() {
 
-        for (Node[] rowNodes : nodes) {
+        for (Node[] rowNodes : map.getNodes()) {
             for (Node node : rowNodes) {
                 if (node.hasPacman() && node.getConsumable() != null) {
 
@@ -99,7 +96,7 @@ public class GameRules {
      */
     private void eatGhost() {
 
-        for (Node[] rowNodes : nodes) {
+        for (Node[] rowNodes : map.getNodes()) {
             for (Node node : rowNodes) {
                 if (GameStatus.isEatableGhosts()) {
                     if (node.hasPacman() && node.hasGhost()) {
@@ -118,7 +115,7 @@ public class GameRules {
      */
     private void loseLife() {
 
-        for (Node[] rowNodes : nodes) {
+        for (Node[] rowNodes : map.getNodes()) {
             for (Node node : rowNodes) {
                 if (!GameStatus.isEatableGhosts()) {
                     if (node.hasPacman() && node.hasGhost()) {
