@@ -37,7 +37,7 @@ public final class GameConstants {
     public static final int GATE = 31;
 
     /**
-     * Método responsável por retornar a direção oposta a uma direção
+     * Método responsável por retornar uma direção oposta
      * @param direction Direção de uma Entidade
      * @return Direção oposta ao argumento direction
      */

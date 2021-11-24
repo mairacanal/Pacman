@@ -79,8 +79,7 @@ public abstract class Ghost extends Entity {
 
     /**
      * TODO
-     * Método que move o fantasma de volta para casa, após o Pacman comer o 
-     * fantasma
+     * Método que move o fantasma de volta para casa, após o Pacman come-lo 
      */
     protected void goingHome() {
 
@@ -128,8 +127,7 @@ public abstract class Ghost extends Entity {
     }
     
     /**
-     * Método que inicializa o fantasma na posição adequada e coloca o fantasma no estado
-     * adequado
+     * Método que inicializa o fantasma na posição e no estado adequado
      */
     public void born() {
 

@@ -43,7 +43,7 @@ public abstract class Entity {
 
     /**
      * Método abstrato responsável pela iniciação da Entidade, ou seja,
-     * posiciona-lo no nó adequado com o estado adequado
+     * posiciona-la no nó adequado com o estado adequado
      */
     abstract public void born();
 
@@ -74,7 +74,7 @@ public abstract class Entity {
 
     /**
      * Método setter do atributo node
-     * @param node Nó em que a Entidade deve se encontra
+     * @param node Nó em que a Entidade deve se encontrar
      */
     public void setNode(Node node) {
 
