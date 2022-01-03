@@ -6,7 +6,7 @@
 package pacman.gameElements;
 
 import java.util.ArrayList;
-import java.util.Random;
+import pacman.engine.GameStatus;
 
 /**
  * Classe que representa um elemento do jogo, o Pacman
@@ -29,6 +29,9 @@ public class Pacman extends Entity {
      */
     public void born() {
 
+        direction = GameConstants.LEFT;
+        GameStatus.setPacmanDirection(direction);
+        
         currentNode.removeEntity(this);
         initialNode.addEntity(this);
         currentNode = initialNode;
@@ -36,30 +39,27 @@ public class Pacman extends Entity {
     }
     
     /**
-     * TODO: mover-se por entrada de teclado
      * Método que move o Pacman no tabuleiro aleatoriamente
      */
     public void move() {
-
-        Random rand = new Random();
+        
         Node previousNode = currentNode;
-        ArrayList<Node> currentNodes = currentNode.getNodes();
-        ArrayList<Integer> id = new ArrayList<>();
-        int newDirection;
-
-        id.add(GameConstants.BLOCKED);
-        id.add(GameConstants.GATE);
-
-        do {
-
-            newDirection = rand.nextInt(4);
-            currentNode = currentNodes.get(newDirection);
-
-        } while (!currentNode.notForbiddenId(id) || newDirection == GameConstants.oppositeDirection(direction));
-
-        direction = newDirection;
-        previousNode.removeEntity(this);
-        currentNode.addEntity(this);
+        ArrayList<Node> nodes = currentNode.getNodes();        
+        int newDirection = GameStatus.getPacmanDirection();
+        
+        if (nodes.get(newDirection).getId() != GameConstants.BLOCKED 
+                && nodes.get(newDirection).getId() != GameConstants.GATE) {            
+            direction = newDirection;                        
+        }
+        
+        if (nodes.get(direction).getId() != GameConstants.BLOCKED 
+                && nodes.get(direction).getId() != GameConstants.GATE) {
+            
+            currentNode = nodes.get(direction);
+            previousNode.removeEntity(this);
+            currentNode.addEntity(this);
+        
+        }               
         
     }
     
