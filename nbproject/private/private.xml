@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Consumable.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Inky.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Entity.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Map.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/engine/Engine.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/Pacman.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Blinky.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Node.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Pacman.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/render/Render.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Pinky.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Ghost.java</file>
-            <file>file:/home/mairacanal/Dropbox/NetBeansProjects/Pacman/src/pacman/gameElements/Clyde.java</file>
+            <file>file:/home/mairacanal/Dropbox/USP/SEMESTRES/4%20SEMESTRE/POO/PROJETO/PARTE%202/Pacman/src/pacman/gameElements/Map.java</file>
+            <file>file:/home/mairacanal/Dropbox/USP/SEMESTRES/4%20SEMESTRE/POO/PROJETO/PARTE%202/Pacman/src/pacman/gameElements/GameConstants.java</file>
+            <file>file:/home/mairacanal/Dropbox/USP/SEMESTRES/4%20SEMESTRE/POO/PROJETO/PARTE%202/Pacman/src/pacman/Pacman.java</file>
+            <file>file:/home/mairacanal/Dropbox/USP/SEMESTRES/4%20SEMESTRE/POO/PROJETO/PARTE%202/Pacman/src/pacman/FXML.fxml</file>
+            <file>file:/home/mairacanal/Dropbox/USP/SEMESTRES/4%20SEMESTRE/POO/PROJETO/PARTE%202/Pacman/src/pacman/render/Render.java</file>
+            <file>file:/home/mairacanal/Dropbox/USP/SEMESTRES/4%20SEMESTRE/POO/PROJETO/PARTE%202/Pacman/src/pacman/engine/Controller.java</file>
         </group>
     </open-files>
 </project-private>
