@@ -5,87 +5,145 @@
 
 package pacman.render;
 
-import pacman.engine.GameStatus;
+import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import pacman.gameElements.GameConstants;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
 import java.util.HashMap;
+import pacman.engine.GameStatus;
 
 /**
  * Classe que renderiza a interface gráfica do jogo
  */
-public class Render {
+public class Render extends Group {
     
-    private Map map;
-    private HashMap<Integer, String> pallete;
+    public final static double CELL_WIDTH = 20.0;
+    
+    @FXML
+    private int rowCount;
+        
+    @FXML
+    private int columnCount;
+            
+    private final HashMap<Integer, Image> pallete;
+    private final Image[] pacmanView;
+    private ImageView[][] cellViews;
     
     /**
      * Construtor padrão da classe Render
-     * @param map Mapa do jogo
      */
-    public Render(Map map) {
+    public Render() {
         
-        this.map = map;
         this.pallete = new HashMap<>();
-        this.pickPallete();
+        this.pacmanView = new Image[4];
+        this.loadImages();
     
+    }
+    
+    private void initializeGrid() {
+                   
+        this.cellViews = new ImageView[GameConstants.BOARD_VERTICAL][GameConstants.BOARD_HORIZONTAL];
+
+        for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++) {
+
+            for (int j = 0; j < GameConstants.BOARD_HORIZONTAL; j++) {
+
+                ImageView imageView = new ImageView();
+
+                imageView.setX((double) j * CELL_WIDTH);
+                imageView.setY((double) i * CELL_WIDTH);
+                imageView.setFitWidth(CELL_WIDTH);
+                imageView.setFitHeight(CELL_WIDTH);
+                this.cellViews[i][j] = imageView;
+                this.getChildren().add(imageView);
+
+            }
+
+        }
+        
     }
     
     /**
      * Método que define a paleta de correspondência entre símbolos e identificadores
      * do jogo
      */
-    private void pickPallete(){
+    private void loadImages(){
 
-        this.pallete.put(GameConstants.PATH,   "  " + "\u001B[0m");
-        this.pallete.put(GameConstants.BLOCKED,"\u001B[34m" + "▓▓" + "\u001B[0m");
-        this.pallete.put(GameConstants.PACMAN, "\u001B[33m" + "¢ " + "\u001B[0m");
-        this.pallete.put(GameConstants.BLINKY, "\u001B[31m" + "B " + "\u001B[0m");
-        this.pallete.put(GameConstants.PINKY,  "\u001B[35m" + "P " + "\u001B[0m");
-        this.pallete.put(GameConstants.INKY,   "\u001B[36m" + "I " + "\u001B[0m");
-        this.pallete.put(GameConstants.CLYDE,  "\u001B[37m" + "C " + "\u001B[0m");
-        this.pallete.put(GameConstants.PACDOT, "\u001B[37m" + "· " + "\u001B[0m");
-        this.pallete.put(GameConstants.PILL,   "\u001B[37m" + "¤ " + "\u001B[0m");
-        this.pallete.put(GameConstants.FRUIT,  "\u001B[31m" + "× " + "\u001B[0m");
-        this.pallete.put(23,                   "× " + "\u001B[0m");
-        this.pallete.put(24,                   "× " + "\u001B[0m");
-        this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "  " + "\u001B[0m");
-        this.pallete.put(GameConstants.GATE,   "\u001B[34m" + "--" + "\u001B[0m");
+        this.pallete.put(GameConstants.BLOCKED,new Image("file:src/pacman/resources/wall.png"));
+        this.pallete.put(GameConstants.BLINKY, new Image("file:src/pacman/resources/blinky.gif"));
+        this.pallete.put(GameConstants.PINKY,  new Image("file:src/pacman/resources/pinky.gif"));
+        this.pallete.put(GameConstants.INKY,   new Image("file:src/pacman/resources/inky.gif"));
+        this.pallete.put(GameConstants.CLYDE,  new Image("file:src/pacman/resources/clyde.gif"));
+        this.pallete.put(GameConstants.PACDOT, new Image("file:src/pacman/resources/smalldot.png"));
+        this.pallete.put(GameConstants.PILL,   new Image("file:src/pacman/resources/whitedot.png"));
+        // this.pallete.put(GameConstants.FRUIT,  "\u001B[31m" + "× " + "\u001B[0m");
+        // this.pallete.put(23,                   "× " + "\u001B[0m");
+        // this.pallete.put(24,                   "× " + "\u001B[0m");
+        // this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "  " + "\u001B[0m");
+        this.pallete.put(GameConstants.GATE,   new Image("file:src/pacman/resources/wall.png"));
+        
+        for (int i = 0; i < 4; i++)
+            this.pacmanView[i] = new Image(String.format("file:src/pacman/resources/pacman%d.gif", i));
         
     }
     
     /**
      * Método que desenha a interface gráfica do jogo
      */
-    public void draw(){
-
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
-
+    public void update(Map map){
+        
         for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++){
             
             for (int j = 0; j < GameConstants.BOARD_HORIZONTAL; j++){
                 
                 Node current = map.getNode(i,j);
                 
-                if (!current.getEntities().isEmpty())
-                    System.out.print(this.pallete.get(current.getEntities().get(0).getId()));
+                if (!current.getEntities().isEmpty()) {
+                    if (current.getEntities().get(0).getId() == GameConstants.PACMAN)
+                        this.cellViews[i][j].setImage(this.pacmanView[GameStatus.getPacmanDirection()]);
+                    else
+                        this.cellViews[i][j].setImage(this.pallete.get(current.getEntities().get(0).getId()));                    
+                }                    
                 else if (current.getConsumable() != null)
-                    System.out.print(this.pallete.get(current.getConsumable().getId()));
+                    this.cellViews[i][j].setImage(this.pallete.get(current.getConsumable().getId()));
                 else if (current.getId() == GameConstants.BLOCKED || current.getId() == GameConstants.GATE)
-                    System.out.print(this.pallete.get(current.getId()));
-                else        
-                    System.out.print(this.pallete.get(GameConstants.PATH));
-                
+                    this.cellViews[i][j].setImage(this.pallete.get(current.getId()));   
+                else
+                    this.cellViews[i][j].setImage(null);
+                                
             }
             
-            System.out.println();
-            
-        }  
-        
-        System.out.println("Points: " + GameStatus.getPoints());
-        System.out.println("Lifes: " + GameStatus.getLifes());
+        }
 
+    }
+    
+    public int getRowCount() {
+        
+        return this.rowCount;
+        
+    }
+
+    public void setRowCount(int rowCount) {
+        
+        this.rowCount = rowCount;
+        this.initializeGrid();
+        
+    }
+
+    public int getColumnCount() {
+        
+        return this.columnCount;
+        
+    }
+
+    public void setColumnCount(int columnCount) {
+        
+        this.columnCount = columnCount;
+        this.initializeGrid();
+        
     }
     
 }

@@ -5,6 +5,8 @@
 
 package pacman.engine;
 
+import pacman.gameElements.GameConstants;
+
 /**
  * Classe que armazena todas as informações do jogo, como nível, pontos e vidas, e realiza 
  * toda a aritmética com essas informações.
@@ -19,6 +21,7 @@ public class GameStatus {
     static private boolean resetGame = false;
     static private boolean nextLevel = false;
     static private boolean gameOver = false;
+    static private int pacmanDirection = GameConstants.LEFT;
 
     /**
      * Método getter do atributo level
@@ -209,6 +212,18 @@ public class GameStatus {
         nextLevel = false;
         gameOver = false;
 
+    }
+    
+    public static void setPacmanDirection(int direction) {
+        
+        pacmanDirection = direction;
+        
+    }
+    
+    public static int getPacmanDirection() {
+        
+        return pacmanDirection;
+        
     }
 
 }
