@@ -11,7 +11,6 @@ import pacman.gameElements.Node;
 import pacman.gameElements.GameConstants;
 import java.util.LinkedList;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Classe que representa a engine de funcionamento do jogo, sendo responsável pela movimentação
@@ -20,11 +19,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class Engine {
 
-    private Map map;
-    private GameRules gameRules;
+    private final Map map;
+    private final GameRules gameRules;
     private ArrayList<Entity> entities;
-
-    private final int framerate = 1;
 
     /**
      * Construtor padrão da classe Engine
@@ -56,7 +53,7 @@ public class Engine {
         node.setStatus(0);
         node.setDistance(key, 0);
 
-        while (list.size() > 0) {
+        while (!list.isEmpty()) {
             
             Node currNode = list.pop();
             
@@ -103,16 +100,6 @@ public class Engine {
      * e recalculando as distâncias.
      */
     public void running() {
-
-        try {
-
-            TimeUnit.MILLISECONDS.sleep(1000 / framerate);
-
-        } catch (InterruptedException e) {
-
-            System.out.println("Error: " + e.getMessage());
-
-        }
 
         // FIX ME: Clyde não mata o Pacman
         for (Entity entity : entities)
