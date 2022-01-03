@@ -5,49 +5,39 @@
 
 package pacman;
 
-import pacman.gameElements.Map;
-import pacman.engine.Engine;
-import pacman.render.Render;
-import java.util.Scanner;
+import pacman.engine.Controller;
 
-public class Pacman {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-    /**
-     * @param args the command line arguments
-     */
+public class Pacman extends Application {
+        
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Pacman.fxml"));
+        Parent root = loader.load();
+        
+        primaryStage.setTitle("Pacman");
+        
+        Controller controller = loader.getController();
+        
+        root.setOnKeyPressed(controller);
+        double sceneWidth = controller.getBoardWidth() + 20.0;
+        double sceneHeight = controller.getBoardHeight() + 100.0;
+        primaryStage.setScene(new Scene(root, sceneWidth, sceneHeight));
+        primaryStage.show();
+        root.requestFocus();
+        
+    }
+
     public static void main(String[] args) {
         
-        Map map = new Map();
+        launch(args);
         
-        Engine engine = new Engine(map);
-        Render render = new Render(map);
-
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("O jogo apresentado é uma versão beta da versão final do jogo");
-        System.out.println("Entre todas as funcionalidades que devem ser implementadas, as seguintes funcionalidades ainda não funcionam:");
-        System.out.println("- O Pacman move-se de forma aleatória no tabuleiro, sem input do usuário");
-        System.out.println("- O Blinky e o Pinky ainda movem-se na mesma velocidade");
-        System.out.println("- Apesar do Pacman comer as pílulas de energia, elas ainda não funcionam");
-        System.out.println("- Frutas bônus ainda não aparecem no tabuleiro");
-        System.out.println("As demais funcionalidades já funcionam como esperado, apesar de alguns pequenos bugs que serão consertados para parte 2");
-        System.out.println("IMPORTANTE: O professor Robson autorizou a entrega do jogo dessa forma");
-        System.out.println("------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("Clique em Enter para continuar");
-
-        scan.nextLine();
-
-        engine.init();              
-        render.draw();
-
-        while (true) {
-
-            engine.running();
-            render.draw();
-
-        }
-
     }
     
 }
