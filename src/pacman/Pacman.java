@@ -18,7 +18,7 @@ public class Pacman extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Pacman.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("render/Pacman.fxml"));
         Parent root = loader.load();
         
         primaryStage.setTitle("Pacman");
