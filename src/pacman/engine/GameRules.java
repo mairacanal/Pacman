@@ -5,6 +5,7 @@
 
 package pacman.engine;
 
+import pacman.gameElements.Consumable;
 import pacman.gameElements.GameConstants;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
@@ -90,7 +91,9 @@ public class GameRules {
      * novamente, após mais 100 pacdots.
      */
     private void createFruit() {
-        
+        if(GameStatus.getPacdots() == 70 || GameStatus.getPacdots() == 170) {
+            map.getNode(17, 13).setConsumable(new Consumable(22));
+        }
     }
     
     /**
