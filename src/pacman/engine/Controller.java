@@ -25,10 +25,10 @@ public class Controller implements EventHandler<KeyEvent> {
     private Label scoreLabel;
     
     @FXML
-    private Label levelLabel;
+    private Label levelLabel;   
     
     @FXML
-    private Label gameOverLabel;
+    private Label lifeLabel;   
     
     @FXML
     private Render render;
@@ -76,8 +76,9 @@ public class Controller implements EventHandler<KeyEvent> {
         this.engine.running();
         
         this.render.update(this.map);
-        this.scoreLabel.setText(String.format("Score: %d", GameStatus.getPoints()));
-        this.levelLabel.setText(String.format("Level: %d", GameStatus.getLevel()));       
+        this.scoreLabel.setText(String.format("Score %d", GameStatus.getPoints()));
+        this.levelLabel.setText(String.format(" Level %d", GameStatus.getLevel()));        
+        this.lifeLabel.setText(String.format("Lifes %d", GameStatus.getLifes()));        
         
     }
 

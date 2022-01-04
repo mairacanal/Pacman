@@ -5,8 +5,6 @@
 ### Visual
 
 - Tela de Menu Inicial
-- Na tela de jogo, colocar o número de vidas do Pacman
-- Deixar a aparência do display de nível, vida e pontos mais próxima do resto do jogo
 - Mudar o sprite do Pacman para algo mais pixelado
 - Mudar as paredes do tabuleiro para algo mais bonito
 - Diferenciar as paredes da porta dos fantasmas

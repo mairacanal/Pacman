@@ -28,7 +28,10 @@ public class Pacman extends Application {
         root.setOnKeyPressed(controller);
         double sceneWidth = controller.getBoardWidth() + 20.0;
         double sceneHeight = controller.getBoardHeight() + 100.0;
-        primaryStage.setScene(new Scene(root, sceneWidth, sceneHeight));
+        
+        Scene scene = new Scene(root, sceneWidth, sceneHeight);
+        scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
         root.requestFocus();
         
