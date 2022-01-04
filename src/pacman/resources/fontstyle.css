@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Emulogic';
+    src: url('fonts/Emulogic-zrEw.ttf');
+}
+
+.label .text {
+    -fx-font-family: 'Emulogic';
+}
+
+.button {
+    -fx-font-family: 'Emulogic';
+    -fx-text-fill: #676d71; 
+    -fx-background-color: black;
+    -fx-border-width: 3;
+    -fx-border-radius: 4;
+    -fx-border-color: #676d71;
+}
+
+.button:hover {
+    -fx-text-fill: white; 
+    -fx-border-color: white;
+}
