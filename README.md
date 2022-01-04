@@ -15,7 +15,6 @@
 
 - Aumentar a velocidade do Blinky a medida que o usuário ganha mais pontos
 - Implementar o poder da pílula de energia + Deixar os fantasmas azuis
-- Implementar a aparição das frutas bônus
 
 ### Documentação
 
