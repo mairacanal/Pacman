@@ -79,9 +79,9 @@ public class Render extends Group {
         this.pallete.put(GameConstants.CLYDE,  new Image("file:src/pacman/resources/clyde.gif"));
         this.pallete.put(GameConstants.PACDOT, new Image("file:src/pacman/resources/smalldot.png"));
         this.pallete.put(GameConstants.PILL,   new Image("file:src/pacman/resources/whitedot.png"));
-        this.pallete.put(GameConstants.FRUIT,   new Image("file:src/pacman/resources/cherry.png"));
-        this.pallete.put(GameConstants.FRUIT1,   new Image("file:src/pacman/resources/strawberry.png"));
-        this.pallete.put(GameConstants.FRUIT2,   new Image("file:src/pacman/resources/orange.png"));
+        this.pallete.put(GameConstants.FRUIT,  new Image("file:src/pacman/resources/cherry.png"));
+        this.pallete.put(GameConstants.FRUIT1, new Image("file:src/pacman/resources/strawberry.png"));
+        this.pallete.put(GameConstants.FRUIT2, new Image("file:src/pacman/resources/orange.png"));
         // this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "  " + "\u001B[0m");
         this.pallete.put(GameConstants.GATE,   new Image("file:src/pacman/resources/wall.png"));
         

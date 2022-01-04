@@ -86,14 +86,14 @@ public class GameRules {
     }
     
     /**
-     * TODO
      * Método que cria, visualmente, uma fruta no mapa após o usuário comer 70 pacdots e
      * novamente, após mais 100 pacdots.
      */
     private void createFruit() {
-        if(GameStatus.getPacdots() == 70 || GameStatus.getPacdots() == 170) {
-            map.getNode(17, 13).setConsumable(new Consumable(22));
-        }
+        
+        if (GameStatus.getPacdots() == 70 || GameStatus.getPacdots() == 170)
+            map.getNode(17, 13).setConsumable(new Consumable(GameConstants.FRUIT));
+        
     }
     
     /**
