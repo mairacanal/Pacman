@@ -32,6 +32,8 @@ public final class GameConstants {
     public static final int PACDOT = 20;
     public static final int PILL = 21;
     public static final int FRUIT = 22;
+    public static final int FRUIT1 = 23;
+    public static final int FRUIT2 = 24;
 
     public static final int HOME = 30;
     public static final int GATE = 31;
