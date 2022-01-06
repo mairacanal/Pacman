@@ -6,8 +6,6 @@
 
 - Tela de Menu Inicial
 - Mudar o sprite do Pacman para algo mais pixelado
-- Mudar as paredes do tabuleiro para algo mais bonito
-- Diferenciar as paredes da porta dos fantasmas
 - Implementar um botão de pause
 - Tela de Game Over e perguntar ao usuário se quer jogar novamente
 
