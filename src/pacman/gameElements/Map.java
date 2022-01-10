@@ -17,6 +17,7 @@ public class Map {
     
     private Node[][] nodes;
     private int[][] matrix;
+    private ArrayList<Ghost> ghosts;
 
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
     private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
@@ -26,6 +27,7 @@ public class Map {
      */
     public Map(){
         
+        ghosts = new ArrayList<>();
         this.nodes = new Node[BOARD_VERTICAL][BOARD_HORIZONTAL];
         this.matrix = readMapFile();
 
@@ -102,16 +104,20 @@ public class Map {
                         entities.add(new Pacman(nodes[i][j]));
                         break;
                     case (GameConstants.BLINKY):
-                        entities.add(new Blinky(nodes[i][j]));
+                        ghosts.add(new Blinky(nodes[i][j]));
+                        entities.add(ghosts.get(ghosts.size()-1));
                         break;
                     case (GameConstants.PINKY):
-                        entities.add(new Pinky(nodes[i][j]));
+                        ghosts.add(new Pinky(nodes[i][j]));
+                        entities.add(ghosts.get(ghosts.size()-1));
                         break;
                     case (GameConstants.INKY):
-                        entities.add(new Inky(nodes[i][j]));
+                        ghosts.add(new Inky(nodes[i][j]));
+                        entities.add(ghosts.get(ghosts.size()-1));
                         break;
                     case (GameConstants.CLYDE):
-                        entities.add(new Clyde(nodes[i][j]));
+                        ghosts.add(new Clyde(nodes[i][j]));
+                        entities.add(ghosts.get(ghosts.size()-1));
                         break;
                     default:
                         break;
@@ -146,5 +152,9 @@ public class Map {
         return nodes;
     
     }    
+    
+    public ArrayList<Ghost> getGhosts() {
+        return ghosts;
+    }
 
 }
