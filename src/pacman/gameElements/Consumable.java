@@ -35,8 +35,8 @@ public class Consumable {
                 break;
             }
             case (GameConstants.FRUIT): {
-                points = 200 * GameStatus.getLevel();
-                this.id += (GameStatus.getLevel()-1) % 3;
+                points = 100 + 200 * (GameStatus.getLevel() - 1);
+                this.id += (GameStatus.getLevel() - 1) % 3;
                 break;
             }
             

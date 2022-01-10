@@ -79,13 +79,12 @@ public class Render extends Group {
         this.pallete.put(GameConstants.CLYDE,  new Image("file:src/pacman/resources/clyde.gif"));
         this.pallete.put(GameConstants.PACDOT, new Image("file:src/pacman/resources/smalldot.png"));
         this.pallete.put(GameConstants.PILL,   new Image("file:src/pacman/resources/whitedot.png"));
-        this.pallete.put(GameConstants.FRUIT,   new Image("file:src/pacman/resources/cherry.png"));
-        this.pallete.put(GameConstants.FRUIT1,   new Image("file:src/pacman/resources/strawberry.png"));
-        this.pallete.put(GameConstants.FRUIT2,   new Image("file:src/pacman/resources/orange.png"));
+        this.pallete.put(GameConstants.FRUIT,  new Image("file:src/pacman/resources/cherry.png"));
+        this.pallete.put(GameConstants.FRUIT1, new Image("file:src/pacman/resources/strawberry.png"));
+        this.pallete.put(GameConstants.FRUIT2, new Image("file:src/pacman/resources/orange.png"));
         this.pallete.put(GameConstants.BLUEGHOST,   new Image("file:src/pacman/resources/blueghost.gif"));
         this.pallete.put(GameConstants.GHOSTGHOST,   new Image("file:src/pacman/resources/orange.png"));
         // this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "  " + "\u001B[0m");
-        this.pallete.put(GameConstants.GATE,   new Image("file:src/pacman/resources/wall.png"));
         
         for (int i = 0; i < 4; i++)
             this.pacmanView[i] = new Image(String.format("file:src/pacman/resources/pacman%d.gif", i));
@@ -111,7 +110,7 @@ public class Render extends Group {
                 }                    
                 else if (current.getConsumable() != null)
                     this.cellViews[i][j].setImage(this.pallete.get(current.getConsumable().getId()));
-                else if (current.getId() == GameConstants.BLOCKED || current.getId() == GameConstants.GATE)
+                else if (current.getId() == GameConstants.BLOCKED)
                     this.cellViews[i][j].setImage(this.pallete.get(current.getId()));   
                 else
                     this.cellViews[i][j].setImage(null);

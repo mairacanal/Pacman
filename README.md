@@ -6,8 +6,6 @@
 
 - Tela de Menu Inicial
 - Mudar o sprite do Pacman para algo mais pixelado
-- Mudar as paredes do tabuleiro para algo mais bonito
-- Diferenciar as paredes da porta dos fantasmas
 - Implementar um botão de pause
 - Tela de Game Over e perguntar ao usuário se quer jogar novamente
 
@@ -15,7 +13,6 @@
 
 - Aumentar a velocidade do Blinky a medida que o usuário ganha mais pontos
 - Implementar o poder da pílula de energia + Deixar os fantasmas azuis
-- Implementar a aparição das frutas bônus
 
 ### Documentação
 
