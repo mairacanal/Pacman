@@ -80,6 +80,20 @@ public class Node {
         return entities;
         
     }
+    
+    /**
+     * Retorna os fantasmas que estão no nó
+     * @return Array de fantasmas existentes no nó
+     */
+    public ArrayList<Entity> getGhosts() {
+        ArrayList<Entity> ghosts = new ArrayList<>();
+        for(Entity entity : entities) {
+            if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.GHOSTGHOST) 
+                ghosts.add(entity);
+        }
+        return ghosts;
+        
+    }
 
     /**
      * Método setter do atributo entities
@@ -132,7 +146,7 @@ public class Node {
     public boolean hasGhost() {
 
         for (Entity entity : entities)
-            if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.CLYDE) 
+            if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.GHOSTGHOST) 
                 return true;
 
         return false;
@@ -146,7 +160,7 @@ public class Node {
      */
     public int getDistance(String key) {
         
-        return distances.get(key);
+        return distances.get(key); 
     
     }
 
