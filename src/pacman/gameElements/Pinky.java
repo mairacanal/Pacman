@@ -34,6 +34,9 @@ public class Pinky extends Ghost {
             chase();
         else if (isGoingHome)
             goingHome();
+        else if (isRunningAway){
+            runAway();
+        }
 
     }
     

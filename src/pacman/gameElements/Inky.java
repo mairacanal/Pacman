@@ -34,6 +34,9 @@ public class Inky extends Ghost {
             random();
         else if (isGoingHome)
             goingHome();
+        else if (isRunningAway){
+            runAway();
+        }
 
     }
     

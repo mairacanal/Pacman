@@ -17,6 +17,10 @@ public abstract class Ghost extends Entity {
     protected boolean isChasing;
     protected boolean isLeavingHome;
     protected boolean isGoingHome;
+    protected boolean isRunningAway;
+    private boolean isDead;
+    protected int behavior;
+    protected int normalId;
     
     /**
      * Construtor padrão da classe abstrata Entity
@@ -28,6 +32,7 @@ public abstract class Ghost extends Entity {
     Ghost(Node currentNode, int id, int speed, int direction) {
         
         super(currentNode, id, speed, direction);
+        normalId = id;
     
     }
 
@@ -56,7 +61,6 @@ public abstract class Ghost extends Entity {
         currentNode.addEntity(this);
 
     }
-
     /**
      * Método que move o fantasma para fora da casa de forma coordenada
      */
@@ -72,17 +76,29 @@ public abstract class Ghost extends Entity {
 
             isLeavingHome = false;
             isChasing = true;
+            isRunningAway = false;
+            isGoingHome = false; 
 
         }
 
     }
 
-    /**
-     * TODO
-     * Método que move o fantasma de volta para casa, após o Pacman come-lo 
-     */
-    protected void goingHome() {
-
+    public void setEatable(boolean isEatable) {
+        if(!isDead) {
+            if(isEatable) {
+                id = GameConstants.BLUEGHOST;
+                isRunningAway = true;
+                isLeavingHome = false;
+                isChasing = false;
+                isGoingHome = false;   
+            } else {
+                id = normalId;
+                isRunningAway = false;
+                isLeavingHome = false;
+                isChasing = true;
+                isGoingHome = false;  
+            }
+        }
     }
 
     /**
@@ -96,6 +112,15 @@ public abstract class Ghost extends Entity {
         id.add(GameConstants.GATE);
 
         moveNodeByDistance("pacman", id);
+
+    }
+    
+    /**
+     * Método que move o fantasma perseguindo o Pacman
+     */
+    protected void runAway() {
+
+        random();
 
     }
 
@@ -130,10 +155,13 @@ public abstract class Ghost extends Entity {
      * Método que inicializa o fantasma na posição e no estado adequado
      */
     public void born() {
-
+        id = normalId;
+        isDead = false;
+        
         isLeavingHome = true;
         isChasing = false;
-        isGoingHome = false;        
+        isGoingHome = false;    
+        isRunningAway = false;
         
         currentNode.removeEntity(this);
         initialNode.addEntity(this);
@@ -144,12 +172,14 @@ public abstract class Ghost extends Entity {
     /**
      * Método que mata o fantasma, colocando ele no estado de voltar para casa
      */
+    @Override
     public void die() {
-        
+        isDead = true;
+        id = GameConstants.GHOSTGHOST;
         isLeavingHome = false;
         isChasing = false;
         isGoingHome = true;
-
+        isRunningAway = false;
     }
     
 }

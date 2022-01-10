@@ -5,6 +5,8 @@
 
 package pacman.gameElements;
 
+import pacman.engine.GameStatus;
+
 /**
  * Classe que representa um elemento do jogo, o fantasma Blinky 
  */
@@ -34,6 +36,9 @@ public class Blinky extends Ghost {
             chase();
         else if (isGoingHome)
             goingHome();
+        else if (isRunningAway){
+            runAway();
+        }
         
     }
     
