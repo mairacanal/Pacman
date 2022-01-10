@@ -7,8 +7,10 @@ package pacman.engine;
 
 import pacman.gameElements.Consumable;
 import pacman.gameElements.GameConstants;
+import pacman.gameElements.Ghost;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
+import pacman.gameElements.Pacman;
 
 /**
  * Classe que agrupa todas as regras do jogo, contabilizando os pontos do usuário, as vidas
@@ -17,6 +19,9 @@ import pacman.gameElements.Node;
 public class GameRules {
 
     private Map map;
+    private long pillStartTime;
+    
+    //TODO: ao invés de ter só o mapa aqui, seria interessante ter o pacman, um array de fantasmas e um array com todos os nós que possuem consumíveis, isso deixaria o jogo mais leve
 
     /**
      * Construtor padrão da classe GameRules
@@ -63,6 +68,8 @@ public class GameRules {
                             break;
                         } case (GameConstants.PILL): {
                             GameStatus.setEatableGhosts(true);
+                            map.getGhosts().forEach((ghost) -> ghost.setEatable(true));
+                            pillStartTime = System.currentTimeMillis();
                             break;
                         }
                     }
@@ -80,9 +87,10 @@ public class GameRules {
      * Método que encerra o poder da pílula de energia após um determinado tempo.
      */
     private void finishPillPower() {
-
-        GameStatus.setEatableGhosts(false);
-        
+        if(GameStatus.isEatableGhosts() && System.currentTimeMillis() - pillStartTime > GameConstants.POWER_PILL_TIME_MS){
+            GameStatus.setEatableGhosts(false);
+            map.getGhosts().forEach((ghost) -> ghost.setEatable(false));
+        }
     }
     
     /**
@@ -103,12 +111,11 @@ public class GameRules {
      * um fantasma.
      */
     private void eatGhost() {
-
-        for (Node[] rowNodes : map.getNodes()) {
-            for (Node node : rowNodes) {
-                if (GameStatus.isEatableGhosts()) {
+        if (GameStatus.isEatableGhosts()) {
+            for (Node[] rowNodes : map.getNodes()) {
+                for (Node node : rowNodes) {
                     if (node.hasPacman() && node.hasGhost()) {
-
+                          node.getGhosts().forEach((ghost) -> ghost.die());
 
                     }
                 }
