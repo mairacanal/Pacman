@@ -22,7 +22,7 @@ public class Engine {
     private final Map map;
     private final GameRules gameRules;
     private ArrayList<Entity> entities;
-
+    
     /**
      * Construtor padrão da classe Engine
      * @param map Mapa do jogo, compartilhado com o Render
@@ -89,6 +89,7 @@ public class Engine {
         
         calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
         calculateDistance(map.getNode(11, 13), "ghostSidewalk");
+        calculateDistance(map.getNode(14, 13), "home");
 
         for (Entity entity : entities)
             entity.born();
