@@ -28,6 +28,8 @@ public final class GameConstants {
     public static final int PINKY = 12;
     public static final int INKY = 13;
     public static final int CLYDE = 14;
+    public static final int BLUEGHOST = 15;
+    public static final int GHOSTGHOST = 16;
 
     public static final int PACDOT = 20;
     public static final int PILL = 21;
@@ -37,6 +39,8 @@ public final class GameConstants {
 
     public static final int HOME = 30;
     public static final int GATE = 31;
+    
+    public static int POWER_PILL_TIME_MS = 10000;
 
     /**
      * Método responsável por retornar uma direção oposta
