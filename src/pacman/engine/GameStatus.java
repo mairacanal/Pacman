@@ -214,12 +214,20 @@ public class GameStatus {
 
     }
     
+    /**
+     * Método setter do atributo pacmanDirection
+     * @param direction Nova direção do Pacman
+     */
     public static void setPacmanDirection(int direction) {
         
         pacmanDirection = direction;
         
     }
     
+    /**
+     * Método getter do atributo pacmanDirection
+     * @return Direção do Pacman
+     */
     public static int getPacmanDirection() {
         
         return pacmanDirection;
