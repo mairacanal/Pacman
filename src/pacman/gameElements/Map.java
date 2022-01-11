@@ -105,19 +105,19 @@ public class Map {
                         break;
                     case (GameConstants.BLINKY):
                         ghosts.add(new Blinky(nodes[i][j]));
-                        entities.add(ghosts.get(ghosts.size()-1));
+                        entities.add(ghosts.get(ghosts.size() - 1));
                         break;
                     case (GameConstants.PINKY):
                         ghosts.add(new Pinky(nodes[i][j]));
-                        entities.add(ghosts.get(ghosts.size()-1));
+                        entities.add(ghosts.get(ghosts.size() - 1));
                         break;
                     case (GameConstants.INKY):
                         ghosts.add(new Inky(nodes[i][j]));
-                        entities.add(ghosts.get(ghosts.size()-1));
+                        entities.add(ghosts.get(ghosts.size() - 1));
                         break;
                     case (GameConstants.CLYDE):
                         ghosts.add(new Clyde(nodes[i][j]));
-                        entities.add(ghosts.get(ghosts.size()-1));
+                        entities.add(ghosts.get(ghosts.size() - 1));
                         break;
                     default:
                         break;
@@ -153,8 +153,14 @@ public class Map {
     
     }    
     
+    /**
+     * Método getter do atributo ghosts, array que possui todos os fantasmas do mapa
+     * @return Array com todos os fantasmas do mapa
+     */
     public ArrayList<Ghost> getGhosts() {
+
         return ghosts;
+
     }
 
 }
