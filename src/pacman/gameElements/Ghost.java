@@ -47,12 +47,12 @@ public abstract class Ghost extends Entity {
         ArrayList<Node> currentNodes = currentNode.getNodes();
         Node nextNode = null;
 
-        for (Node currentNode : currentNodes) {
+        for (Node node : currentNodes) {
 
-            if (currentNode.notForbiddenId(ids) && nextNode == null)
-                nextNode = currentNode;
-            else if (currentNode.notForbiddenId(ids) && nextNode.getDistance(label) > currentNode.getDistance(label)) 
-                nextNode = currentNode;
+            if (node.notForbiddenId(ids) && nextNode == null)
+                nextNode = node;
+            else if (node.notForbiddenId(ids) && nextNode.getDistance(label) > node.getDistance(label)) 
+                nextNode = node;
 
         }
 
@@ -83,9 +83,15 @@ public abstract class Ghost extends Entity {
 
     }
 
+    /**
+     * Método que atualiza as flags de status do fantasma, dependendo se o fantasma está morto.
+     * @param isEatable Operador lógico que indica se o fantasma está comestível ou não.
+     */
     public void setEatable(boolean isEatable) {
-        if(!isDead) {
-            if(isEatable) {
+        
+        if (!isDead) {
+            
+            if (isEatable) {
                 id = GameConstants.BLUEGHOST;
                 isRunningAway = true;
                 isLeavingHome = false;
@@ -98,7 +104,9 @@ public abstract class Ghost extends Entity {
                 isChasing = true;
                 isGoingHome = false;  
             }
+            
         }
+        
     }
 
     /**
@@ -154,7 +162,9 @@ public abstract class Ghost extends Entity {
     /**
      * Método que inicializa o fantasma na posição e no estado adequado
      */
+    @Override
     public void born() {
+
         id = normalId;
         isDead = false;
         
@@ -174,12 +184,14 @@ public abstract class Ghost extends Entity {
      */
     @Override
     public void die() {
+
         isDead = true;
         id = GameConstants.GHOSTGHOST;
         isLeavingHome = false;
         isChasing = false;
         isGoingHome = true;
         isRunningAway = false;
+
     }
     
 }
