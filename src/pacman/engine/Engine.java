@@ -101,10 +101,16 @@ public class Engine {
      * e recalculando as distâncias.
      */
     public void running() {
-
-        // FIX ME: Clyde não mata o Pacman
-        for (Entity entity : entities)
+        
+        for (Entity entity : entities) {
+            
             entity.move();
+            gameRules.runMoveRules();
+            
+            if (GameStatus.isResetGame() || GameStatus.isGameOver() || GameStatus.isNextLevel())
+                break;
+            
+        }
         gameRules.runAllRules();
 
         if (GameStatus.isResetGame())

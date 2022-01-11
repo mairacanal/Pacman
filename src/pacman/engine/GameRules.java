@@ -7,10 +7,8 @@ package pacman.engine;
 
 import pacman.gameElements.Consumable;
 import pacman.gameElements.GameConstants;
-import pacman.gameElements.Ghost;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
-import pacman.gameElements.Pacman;
 
 /**
  * Classe que agrupa todas as regras do jogo, contabilizando os pontos do usuário, as vidas
@@ -18,10 +16,10 @@ import pacman.gameElements.Pacman;
  */
 public class GameRules {
 
-    private Map map;
+    private final Map map;
     private long pillStartTime;
     
-    //TODO: ao invés de ter só o mapa aqui, seria interessante ter o pacman, um array de fantasmas e um array com todos os nós que possuem consumíveis, isso deixaria o jogo mais leve
+    // TODO: ao invés de ter só o mapa aqui, seria interessante ter o pacman, um array de fantasmas e um array com todos os nós que possuem consumíveis, isso deixaria o jogo mais leve
 
     /**
      * Construtor padrão da classe GameRules
@@ -34,16 +32,24 @@ public class GameRules {
     }
     
     /**
-     * Método para execução de todas as regras do jogo
+     * Método para execução das regras do jogo a cada movimento 
      */
-    public void runAllRules() {
+    public void runMoveRules() {
 
         eat();
         finishPillPower();
         eatGhost();
+        loseLife();
+        
+    }
+    
+    /**
+     * Método para execução das regras do jogo a cada rodada
+     */
+    public void runAllRules() {
+
         createFruit();
         addLife();
-        loseLife();
         nextLevel();
         endGame();
         
@@ -83,14 +89,17 @@ public class GameRules {
     }
         
     /**
-     * TODO
      * Método que encerra o poder da pílula de energia após um determinado tempo.
      */
     private void finishPillPower() {
-        if(GameStatus.isEatableGhosts() && System.currentTimeMillis() - pillStartTime > GameConstants.POWER_PILL_TIME_MS){
+        
+        if (GameStatus.isEatableGhosts() && System.currentTimeMillis() - pillStartTime > GameConstants.POWER_PILL_TIME_MS) {
+            
             GameStatus.setEatableGhosts(false);
             map.getGhosts().forEach((ghost) -> ghost.setEatable(false));
+            
         }
+        
     }
     
     /**
@@ -116,7 +125,7 @@ public class GameRules {
                 for (Node node : rowNodes) {
                     if (node.hasPacman() && node.hasGhost()) {
                           node.getGhosts().forEach((ghost) -> ghost.die());
-
+                          // FIX ME: Ganhar os pontos
                     }
                 }
             }
