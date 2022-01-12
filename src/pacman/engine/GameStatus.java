@@ -233,5 +233,12 @@ public class GameStatus {
         return pacmanDirection;
         
     }
-
+    
+    public static void addGhostPoints() {
+        GameConstants.POINTS_BY_GHOST *= 2;
+        
+        if(GameConstants.POINTS_BY_GHOST == 1600) {
+            GameConstants.POINTS_BY_GHOST = 200;
+        }
+    }
 }

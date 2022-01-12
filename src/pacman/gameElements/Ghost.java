@@ -7,6 +7,7 @@ package pacman.gameElements;
 
 import java.util.ArrayList;
 import java.util.Random;
+import pacman.engine.GameStatus;
 
 /**
  * Classe abstrata que representa um fantasma no jogo, implementando as características
@@ -193,9 +194,9 @@ public abstract class Ghost extends Entity {
         isGoingHome = false;    
         isRunningAway = false;
         
-        //currentNode.removeEntity(this);
-       // initialNode.addEntity(this);
-       // currentNode = initialNode;
+        currentNode.removeEntity(this);
+        initialNode.addEntity(this);
+        currentNode = initialNode;
 
     }
     
@@ -211,6 +212,9 @@ public abstract class Ghost extends Entity {
         isChasing = false;
         isGoingHome = true;
         isRunningAway = false;
+
+
+        GameStatus.addGhostPoints();
 
     }
     

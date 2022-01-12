@@ -41,6 +41,7 @@ public final class GameConstants {
     public static final int GATE = 31;
     
     public static int POWER_PILL_TIME_MS = 10000;
+    public static int POINTS_BY_GHOST = 200;
     public static final int VOID = 32;
 
     /**
