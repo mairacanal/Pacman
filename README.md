@@ -8,11 +8,12 @@
 - Implementar um botão de pause
 - Tela de Game Over e perguntar ao usuário se quer jogar novamente
 - Tentar copiar menos a inspiração do GitHub
+- Efeitos sonoros
+- Efeito visual de funcionamento da pílula
 
 ### Engine
 
 - Aumentar a velocidade do Blinky a medida que o usuário ganha mais pontos
-- Implementar o poder da pílula de energia (fazer os fantasmas voltarem para casa e ganhar pontos ao matar os fantasmas)
 
 ### Documentação
 
