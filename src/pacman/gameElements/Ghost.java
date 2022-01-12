@@ -126,6 +126,26 @@ public abstract class Ghost extends Entity {
     /**
      * Método que move o fantasma perseguindo o Pacman
      */
+    protected void goingHome() {
+        
+        if(currentNode.getDistance("home") == 0) {
+            born();
+            return;
+        }
+        
+        ArrayList<Integer> id = new ArrayList<>();
+
+        id.add(GameConstants.BLOCKED);
+
+        moveNodeByDistance("home", id);
+        
+        
+
+    }
+    
+    /**
+     * Método que move o fantasma perseguindo o Pacman
+     */
     protected void runAway() {
 
         random();
@@ -173,9 +193,9 @@ public abstract class Ghost extends Entity {
         isGoingHome = false;    
         isRunningAway = false;
         
-        currentNode.removeEntity(this);
-        initialNode.addEntity(this);
-        currentNode = initialNode;
+        //currentNode.removeEntity(this);
+       // initialNode.addEntity(this);
+       // currentNode = initialNode;
 
     }
     
