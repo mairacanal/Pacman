@@ -5,8 +5,6 @@
 
 package pacman;
 
-import pacman.engine.Controller;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,26 +12,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Pacman extends Application {
-        
+    
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
+                
+        Parent root = FXMLLoader.load(getClass().getResource("render/Menu.fxml"));
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("render/Pacman.fxml"));
-        Parent root = loader.load();
+        Scene scene = new Scene(root, 650.0, 800.0);         
+        scene.getStylesheets().add(Pacman.class.getResource("resources/fontstyle.css").toExternalForm());
         
-        primaryStage.setTitle("Pacman");
-        
-        Controller controller = loader.getController();
-        
-        root.setOnKeyPressed(controller);
-        double sceneWidth = controller.getBoardWidth() + 20.0;
-        double sceneHeight = controller.getBoardHeight() + 100.0;
-        
-        Scene scene = new Scene(root, sceneWidth, sceneHeight);
-        scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        root.requestFocus();
+        stage.setTitle("Pacman");
+        stage.setScene(scene);
+        stage.show();   
         
     }
 

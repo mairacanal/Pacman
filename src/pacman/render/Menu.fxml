@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane fx:controller="pacman.engine.MenuController" style="-fx-background-color: black" xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <VBox alignment="CENTER" spacing="20.0"> 
+            <ImageView fitWidth="450" preserveRatio="true">
+                <image>
+                    <Image url="pacman/resources/logo.png"></Image>
+                </image>
+            </ImageView>
+            <Button fx:id="playButton" onAction="#play" style="-fx-font-size: 120%" prefWidth="200.0" text="Play" />
+            <Label style="-fx-font-size: 100%; -fx-text-fill: white" text="How to play?" />
+            <Label style="-fx-font-size: 100%; -fx-text-fill: white" text="Move Pacman with Arrow Keys" />            
+            <ImageView fitWidth="450" preserveRatio="true">
+                <image>
+                    <Image url="pacman/resources/pacman.gif"></Image>
+                </image>
+            </ImageView>
+            <Label style="-fx-font-size: 90%; -fx-text-fill: white" text="2022 Maira Canal" />
+        </VBox>
+    </center>
+</BorderPane>
