@@ -24,6 +24,23 @@ public class GameStatus {
     static private int pacmanDirection = GameConstants.LEFT;
 
     /**
+     * 
+     */
+    public static void resetStatus () {
+        
+        level = 1;
+        points = 0;
+        lifes = 3;
+        pacdots = 0;
+        eatableGhosts = false;
+        resetGame = false;
+        nextLevel = false;
+        gameOver = false;
+        pacmanDirection = GameConstants.LEFT;
+        
+    }
+    
+    /**
      * Método getter do atributo level
      * @return Nível do jogo
      */
@@ -210,7 +227,6 @@ public class GameStatus {
 
         resetGame = false;
         nextLevel = false;
-        gameOver = false;
 
     }
     
@@ -245,4 +261,5 @@ public class GameStatus {
             
         }
     }
+    
 }

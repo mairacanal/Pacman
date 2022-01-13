@@ -5,44 +5,45 @@
 
 package pacman.render;
 
-import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import java.util.HashMap;
 import pacman.gameElements.GameConstants;
 import pacman.gameElements.Map;
 import pacman.gameElements.Node;
-import java.util.HashMap;
 import pacman.engine.GameStatus;
 
 /**
- * Classe que renderiza a interface gráfica do jogo
+ * Classe que renderiza a interface gráfica do jogo.
  */
 public class Render extends Group {
     
-    public final static double CELL_WIDTH = 20.0;
-    
-    @FXML
-    private int rowCount;
-        
-    @FXML
-    private int columnCount;
+    public final static double CELL = 20.0;    
             
     private final HashMap<Integer, Image> pallete;
+    
     private final Image[] pacmanView;
+    
     private ImageView[][] cellViews;
     
     /**
-     * Construtor padrão da classe Render
+     * Construtor padrão da classe Render.
      */
     public Render() {
         
         this.pallete = new HashMap<>();
         this.pacmanView = new Image[4];
+        
+        this.initializeGrid();
         this.loadImages();
     
     }
     
+    /**
+     * Método que inicializa o componente visual ImageView, o qual representa o
+     * tabuleiro, definindo o tamanho e a posição de cada componente da matriz.
+     */
     private void initializeGrid() {
                    
         this.cellViews = new ImageView[GameConstants.BOARD_VERTICAL][GameConstants.BOARD_HORIZONTAL];
@@ -53,10 +54,10 @@ public class Render extends Group {
 
                 ImageView imageView = new ImageView();
 
-                imageView.setX((double) j * CELL_WIDTH);
-                imageView.setY((double) i * CELL_WIDTH);
-                imageView.setFitWidth(CELL_WIDTH);
-                imageView.setFitHeight(CELL_WIDTH);
+                imageView.setX((double) j * CELL);
+                imageView.setY((double) i * CELL);
+                imageView.setFitWidth(CELL);
+                imageView.setFitHeight(CELL);
                 this.cellViews[i][j] = imageView;
                 this.getChildren().add(imageView);
 
@@ -67,10 +68,10 @@ public class Render extends Group {
     }
     
     /**
-     * Método que define a paleta de correspondência entre símbolos e identificadores
-     * do jogo
+     * Método que define a paleta de correspondência entre imagens e identificadores
+     * do jogo.
      */
-    private void loadImages(){
+    private void loadImages() {
 
         this.pallete.put(GameConstants.BLOCKED,new Image("file:src/pacman/resources/wall.png"));
         this.pallete.put(GameConstants.BLINKY, new Image("file:src/pacman/resources/blinky.gif"));
@@ -84,7 +85,6 @@ public class Render extends Group {
         this.pallete.put(GameConstants.FRUIT2, new Image("file:src/pacman/resources/orange.png"));
         this.pallete.put(GameConstants.BLUEGHOST,   new Image("file:src/pacman/resources/blueghost.gif"));
         this.pallete.put(GameConstants.GHOSTGHOST,   new Image("file:src/pacman/resources/eyes.gif"));
-        // this.pallete.put(GameConstants.HOME,   "\u001B[31m" + "  " + "\u001B[0m");
         
         for (int i = 0; i < 4; i++)
             this.pacmanView[i] = new Image(String.format("file:src/pacman/resources/pacman%d.gif", i));
@@ -92,9 +92,10 @@ public class Render extends Group {
     }
     
     /**
-     * Método que desenha a interface gráfica do jogo
+     * Método que desenha a interface gráfica do jogo.
+     * @param map Mapa do jogo
      */
-    public void update(Map map){
+    public void update(Map map) {
         
         for (int i = 0; i < GameConstants.BOARD_VERTICAL; i++){
             
@@ -118,32 +119,6 @@ public class Render extends Group {
             }
             
         }
-
-    }
-    
-    public int getRowCount() {
-        
-        return this.rowCount;
-        
-    }
-
-    public void setRowCount(int rowCount) {
-        
-        this.rowCount = rowCount;
-        this.initializeGrid();
-        
-    }
-
-    public int getColumnCount() {
-        
-        return this.columnCount;
-        
-    }
-
-    public void setColumnCount(int columnCount) {
-        
-        this.columnCount = columnCount;
-        this.initializeGrid();
         
     }
     

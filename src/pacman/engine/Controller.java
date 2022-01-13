@@ -7,8 +7,8 @@ package pacman.engine;
 
 import javafx.fxml.FXML;
 import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.application.Platform;
 import java.util.Timer;
@@ -17,6 +17,9 @@ import pacman.render.Render;
 import pacman.gameElements.Map;
 import pacman.gameElements.GameConstants;
 
+/**
+ * 
+ */
 public class Controller implements EventHandler<KeyEvent> {
     
     final private static double FRAMERATE = 50.0;
@@ -31,31 +34,51 @@ public class Controller implements EventHandler<KeyEvent> {
     private Label lifeLabel;   
     
     @FXML
+    private Label statusLabel;     
+    
+    @FXML
     private Render render;
 
     private Timer timer;    
     
     private final Map map;
+    
     private final Engine engine;
+    
+    private boolean paused;
 
+    /**
+     * 
+     */
     public Controller() {
         
-        this.map = new Map();
-        this.engine = new Engine(map);
+        this.map = new Map();        
+        this.engine = new Engine(map);        
         
     }
 
+    /**
+     * 
+     */
     public void initialize() {
         
+        this.paused = false;
+        this.statusLabel.setVisible(false);
+        
+        GameStatus.resetStatus();
         this.engine.init();
-        this.update();
+        
+        this.update();        
         this.startTimer();
         
     }
 
+    /**
+     * 
+     */
     private void startTimer() {
         
-        this.timer = new java.util.Timer();
+        this.timer = new Timer();
         
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -64,16 +87,22 @@ public class Controller implements EventHandler<KeyEvent> {
                     update();
                 });
             }
-        };
+        };       
 
-        long frameTimeInMilliseconds = (long) (1000.0 / FRAMERATE);
-        this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
+        long frametime = (long) (1000.0 / FRAMERATE);
+        this.timer.schedule(timerTask, 0, frametime);
         
     }
 
+    /**
+     * 
+     */
     private void update() {
         
         this.engine.running();
+        
+        if (GameStatus.isGameOver())
+            gameOver();
         
         this.render.update(this.map);
         this.scoreLabel.setText(String.format("Score %d", GameStatus.getPoints()));
@@ -82,13 +111,14 @@ public class Controller implements EventHandler<KeyEvent> {
         
     }
 
+    /**
+     * 
+     * @param keyEvent
+     */
     @Override
-    public void handle(KeyEvent keyEvent) {
-             
-        KeyCode code = keyEvent.getCode();
-        
-        if (null != code)
-            switch (code) {
+    public void handle(KeyEvent keyEvent) {             
+                
+        switch (keyEvent.getCode()) {
             case LEFT:
                 GameStatus.setPacmanDirection(GameConstants.LEFT);
                 break;
@@ -103,19 +133,46 @@ public class Controller implements EventHandler<KeyEvent> {
                 break;
             default:
                 break;
-        }        
+        }                
+        
+    }   
+    
+    /**
+     * 
+     * @param event 
+     */
+    @FXML
+    public void pause(ActionEvent event) {
+        
+        if (!paused)            
+            this.timer.cancel();             
+        else 
+            this.startTimer();    
+        
+        paused = !paused;
         
     }
     
-    public double getBoardWidth() {
-        
-        return Render.CELL_WIDTH * GameConstants.BOARD_HORIZONTAL;
+    /**
+     * 
+     * @param event 
+     */
+    @FXML
+    public void reset(ActionEvent event) {
+                
+        this.timer.cancel();             
+        this.initialize();
         
     }
-
-    public double getBoardHeight() {
+     
+    /**
+     * 
+     */
+    public void gameOver() {
         
-        return Render.CELL_WIDTH * GameConstants.BOARD_VERTICAL;
+        this.statusLabel.setText("Game Over");
+        this.statusLabel.setVisible(true);
+        this.timer.cancel();       
         
     }
     

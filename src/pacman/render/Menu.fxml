@@ -18,7 +18,7 @@
                 </image>
             </ImageView>
             <Button fx:id="playButton" onAction="#play" style="-fx-font-size: 120%" prefWidth="200.0" text="Play" />
-            <Label style="-fx-font-size: 100%; -fx-text-fill: white" text="How to play?" />
+            <Label style="-fx-font-size: 110%; -fx-text-fill: white" text="How to play?" />
             <Label style="-fx-font-size: 100%; -fx-text-fill: white" text="Move Pacman with Arrow Keys" />            
             <ImageView fitWidth="450" preserveRatio="true">
                 <image>
