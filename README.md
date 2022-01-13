@@ -7,6 +7,7 @@
 - Tela de "Ready!"
 - Efeitos sonoros
 - Efeito visual de funcionamento da pílula
+- Fazer a aplicação fechar junto com a página
 
 ### Engine
 
