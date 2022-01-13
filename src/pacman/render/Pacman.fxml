@@ -34,8 +34,12 @@
 
     <bottom>
         <BorderPane prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px">
-            <center><Button style="-fx-font-size: 120%"
-                   text="Pause" onAction="#pause" /></center>
+            <center>
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
+                    <Button style="-fx-font-size: 120%" text="Pause" onAction="#pause" />
+                    <Button style="-fx-font-size: 120%" text="Reset" onAction="#reset" />
+                </HBox>
+            </center>
         </BorderPane>
     </bottom>
 </BorderPane>

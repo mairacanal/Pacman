@@ -50,8 +50,7 @@ public class Controller implements EventHandler<KeyEvent> {
     public Controller() {
         
         this.map = new Map();        
-        this.engine = new Engine(map);
-        this.paused = false;
+        this.engine = new Engine(map);        
         
     }
 
@@ -60,7 +59,11 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     public void initialize() {
         
+        this.paused = false;
+        
+        GameStatus.resetStatus();
         this.engine.init();
+        
         this.update();        
         this.startTimer();
         
@@ -136,6 +139,14 @@ public class Controller implements EventHandler<KeyEvent> {
             this.startTimer();    
         
         paused = !paused;
+        
+    }
+    
+    @FXML
+    public void reset(ActionEvent event) {
+                
+        this.timer.cancel();             
+        this.initialize();
         
     }
     
