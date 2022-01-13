@@ -19,7 +19,7 @@ import pacman.gameElements.GameConstants;
 
 public class Controller implements EventHandler<KeyEvent> {
     
-    final private static double FRAMERATE = 5.0;
+    final private static double FRAMERATE = 50.0;
 
     @FXML
     private Label scoreLabel;
