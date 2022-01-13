@@ -35,7 +35,7 @@
     <bottom>
         <BorderPane prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px">
             <center><Button style="-fx-font-size: 120%"
-                   text="Menu" /></center>
+                   text="Pause" onAction="#pause" /></center>
         </BorderPane>
     </bottom>
 </BorderPane>

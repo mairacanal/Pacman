@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 import pacman.render.Render;
@@ -38,15 +39,19 @@ public class Controller implements EventHandler<KeyEvent> {
     private Timer timer;    
     
     private final Map map;
+    
     private final Engine engine;
+    
+    private boolean paused;
 
     /**
      * 
      */
     public Controller() {
         
-        this.map = new Map();
+        this.map = new Map();        
         this.engine = new Engine(map);
+        this.paused = false;
         
     }
 
@@ -56,7 +61,7 @@ public class Controller implements EventHandler<KeyEvent> {
     public void initialize() {
         
         this.engine.init();
-        this.update();
+        this.update();        
         this.startTimer();
         
     }
@@ -121,5 +126,17 @@ public class Controller implements EventHandler<KeyEvent> {
         }                
         
     }   
+    
+    @FXML
+    public void pause(ActionEvent event) {
+        
+        if (!paused)            
+            this.timer.cancel();             
+        else 
+            this.startTimer();    
+        
+        paused = !paused;
+        
+    }
     
 }
