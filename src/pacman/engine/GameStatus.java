@@ -235,10 +235,14 @@ public class GameStatus {
     }
     
     public static void addGhostPoints() {
+        addPoints(GameConstants.POINTS_BY_GHOST);
+        
         GameConstants.POINTS_BY_GHOST *= 2;
         
-        if(GameConstants.POINTS_BY_GHOST == 1600) {
+        
+        if(GameConstants.POINTS_BY_GHOST > 1600) {
             GameConstants.POINTS_BY_GHOST = 200;
+            
         }
     }
 }

@@ -94,6 +94,20 @@ public class Node {
         return ghosts;
         
     }
+    
+    /**
+     * Retorna os fantasmas que estão vivos no nó
+     * @return Array de fantasmas existentes no nó
+     */
+    public ArrayList<Entity> getAliveGhosts() {
+        ArrayList<Entity> ghosts = new ArrayList<>();
+        for(Entity entity : entities) {
+            if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.BLUEGHOST) 
+                ghosts.add(entity);
+        }
+        return ghosts;
+        
+    }
 
     /**
      * Método setter do atributo entities
