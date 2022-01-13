@@ -39,7 +39,7 @@ public class MenuController {
         stage.setScene(scene);
         stage.show();     
         
-        root.requestFocus();    
+        root.requestFocus();            
         
     }
     

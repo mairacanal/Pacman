@@ -7,10 +7,10 @@ package pacman.engine;
 
 import javafx.fxml.FXML;
 import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 import pacman.render.Render;
@@ -32,6 +32,9 @@ public class Controller implements EventHandler<KeyEvent> {
     
     @FXML
     private Label lifeLabel;   
+    
+    @FXML
+    private Label statusLabel;     
     
     @FXML
     private Render render;
@@ -60,6 +63,7 @@ public class Controller implements EventHandler<KeyEvent> {
     public void initialize() {
         
         this.paused = false;
+        this.statusLabel.setVisible(false);
         
         GameStatus.resetStatus();
         this.engine.init();
@@ -83,7 +87,7 @@ public class Controller implements EventHandler<KeyEvent> {
                     update();
                 });
             }
-        };
+        };       
 
         long frametime = (long) (1000.0 / FRAMERATE);
         this.timer.schedule(timerTask, 0, frametime);
@@ -96,6 +100,9 @@ public class Controller implements EventHandler<KeyEvent> {
     private void update() {
         
         this.engine.running();
+        
+        if (GameStatus.isGameOver())
+            gameOver();
         
         this.render.update(this.map);
         this.scoreLabel.setText(String.format("Score %d", GameStatus.getPoints()));
@@ -130,6 +137,10 @@ public class Controller implements EventHandler<KeyEvent> {
         
     }   
     
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void pause(ActionEvent event) {
         
@@ -142,11 +153,26 @@ public class Controller implements EventHandler<KeyEvent> {
         
     }
     
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void reset(ActionEvent event) {
                 
         this.timer.cancel();             
         this.initialize();
+        
+    }
+     
+    /**
+     * 
+     */
+    public void gameOver() {
+        
+        this.statusLabel.setText("Game Over");
+        this.statusLabel.setVisible(true);
+        this.timer.cancel();       
         
     }
     

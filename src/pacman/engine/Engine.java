@@ -92,7 +92,7 @@ public class Engine {
         calculateDistance(map.getNode(14, 13), "home");
 
         for (Entity entity : entities)
-            entity.born();
+            entity.born();        
 
     }
 
@@ -116,25 +116,12 @@ public class Engine {
         if (GameStatus.isResetGame())
             for (Entity entity : entities)
                 entity.born();
-        else if (GameStatus.isGameOver())
-            exit();
         else if (GameStatus.isNextLevel())
             init();
 
         GameStatus.resetFlags();
 
         calculateDistance(entities.get(entities.size() - 1).getNode(), "pacman");
-
-    }
-
-    /**
-     * Método que encerra a engine, mostrando a pontuação final do usuário e encerrando o jogo.
-     */
-    public void exit() {
-
-        System.out.println("GAME OVER");
-        System.out.println("Sua pontuação: " + GameStatus.getPoints());
-        System.exit(0);
 
     }
 

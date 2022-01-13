@@ -227,7 +227,6 @@ public class GameStatus {
 
         resetGame = false;
         nextLevel = false;
-        gameOver = false;
 
     }
     

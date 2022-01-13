@@ -32,13 +32,16 @@
         <Render fx:id="render"/>
     </center>
 
-    <bottom>
-        <BorderPane prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px">
+    <bottom>        
+        <BorderPane prefHeight="70" style="-fx-padding: 20px, 10px, 10px, 10px">                    
             <center>
-                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
-                    <Button style="-fx-font-size: 120%" text="Pause" onAction="#pause" />
-                    <Button style="-fx-font-size: 120%" text="Reset" onAction="#reset" />
-                </HBox>
+                <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="15.0"> 
+                    <Label fx:id="statusLabel" style="-fx-font-size: 120%; -fx-text-fill: yellow" />
+                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
+                        <Button style="-fx-font-size: 120%" text="Pause" onAction="#pause" />
+                        <Button style="-fx-font-size: 120%" text="Reset" onAction="#reset" />
+                    </HBox>
+                </VBox>               
             </center>
         </BorderPane>
     </bottom>

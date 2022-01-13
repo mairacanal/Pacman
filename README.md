@@ -5,7 +5,6 @@
 ### Visual
 
 - Tela de "Ready!"
-- Tela de Game Over e perguntar ao usuário se quer jogar novamente
 - Efeitos sonoros
 - Efeito visual de funcionamento da pílula
 

@@ -22,7 +22,9 @@ public class Render extends Group {
     public final static double CELL = 20.0;    
             
     private final HashMap<Integer, Image> pallete;
+    
     private final Image[] pacmanView;
+    
     private ImageView[][] cellViews;
     
     /**
@@ -116,7 +118,7 @@ public class Render extends Group {
             }
             
         }
-
+        
     }
     
 }
