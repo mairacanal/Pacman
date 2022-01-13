@@ -15,7 +15,7 @@ import pacman.gameElements.Node;
 import pacman.engine.GameStatus;
 
 /**
- * Classe que renderiza a interface gráfica do jogo
+ * Classe que renderiza a interface gráfica do jogo.
  */
 public class Render extends Group {
     
@@ -28,7 +28,7 @@ public class Render extends Group {
     private ImageView[][] cellViews;
     
     /**
-     * Construtor padrão da classe Render
+     * Construtor padrão da classe Render.
      */
     public Render() {
         
@@ -41,7 +41,8 @@ public class Render extends Group {
     }
     
     /**
-     * 
+     * Método que inicializa o componente visual ImageView, o qual representa o
+     * tabuleiro, definindo o tamanho e a posição de cada componente da matriz.
      */
     private void initializeGrid() {
                    
@@ -67,8 +68,8 @@ public class Render extends Group {
     }
     
     /**
-     * Método que define a paleta de correspondência entre símbolos e identificadores
-     * do jogo
+     * Método que define a paleta de correspondência entre imagens e identificadores
+     * do jogo.
      */
     private void loadImages() {
 
@@ -91,8 +92,8 @@ public class Render extends Group {
     }
     
     /**
-     * Método que desenha a interface gráfica do jogo
-     * @param map
+     * Método que desenha a interface gráfica do jogo.
+     * @param map Mapa do jogo
      */
     public void update(Map map) {
         
