@@ -25,6 +25,7 @@ public class Clyde extends Ghost {
      * fantasma está, ou seja, se ele está saindo da casa, andando
      * aleatoriamente no tabuleiro ou voltando para casa.
      */
+    @Override
     public void move() {
         
         moveCounter += speed;

@@ -38,11 +38,11 @@ public final class GameConstants {
     public static final int FRUIT2 = 24;
 
     public static final int HOME = 30;
-    public static final int GATE = 31;
+    public static final int GATE = 31;    
+    public static final int VOID = 32;
     
     public static int POWER_PILL_TIME_MS = 10000;
     public static int POINTS_BY_GHOST = 200;
-    public static final int VOID = 32;
 
     /**
      * Método responsável por retornar uma direção oposta

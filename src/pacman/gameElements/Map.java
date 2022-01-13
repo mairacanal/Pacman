@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public class Map {
     
-    private Node[][] nodes;
-    private int[][] matrix;
-    private ArrayList<Ghost> ghosts;
+    private final Node[][] nodes;
+    private final int[][] matrix;
+    private final ArrayList<Ghost> ghosts;
 
     private final int BOARD_VERTICAL = GameConstants.BOARD_VERTICAL;
     private final int BOARD_HORIZONTAL = GameConstants.BOARD_HORIZONTAL;
@@ -63,7 +63,7 @@ public class Map {
 
     /**
      * Método que conecta todos os nós do mapa, possibilitando o cálculo de distâncias
-     * e a movimentação no mapa
+     * e a movimentação no mapa.
      */
     private void linkAll(){
         

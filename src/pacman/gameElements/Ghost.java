@@ -62,6 +62,7 @@ public abstract class Ghost extends Entity {
         currentNode.addEntity(this);
 
     }
+    
     /**
      * Método que move o fantasma para fora da casa de forma coordenada
      */
@@ -93,17 +94,21 @@ public abstract class Ghost extends Entity {
         if (!isDead) {
             
             if (isEatable) {
+                
                 id = GameConstants.BLUEGHOST;
                 isRunningAway = true;
                 isLeavingHome = false;
                 isChasing = false;
                 isGoingHome = false;   
+                
             } else {
+                
                 id = normalId;
                 isRunningAway = false;
                 isLeavingHome = false;
                 isChasing = true;
                 isGoingHome = false;  
+                
             }
             
         }
@@ -129,9 +134,11 @@ public abstract class Ghost extends Entity {
      */
     protected void goingHome() {
         
-        if(currentNode.getDistance("home") == 0) {
+        if (currentNode.getDistance("home") == 0) {
+            
             born();
             return;
+            
         }
         
         ArrayList<Integer> id = new ArrayList<>();
@@ -140,8 +147,6 @@ public abstract class Ghost extends Entity {
 
         moveNodeByDistance("home", id);
         
-        
-
     }
     
     /**

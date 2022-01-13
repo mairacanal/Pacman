@@ -13,11 +13,11 @@ import java.util.HashMap;
  */
 public class Node {
     
-    private ArrayList<Node> nodes;
+    private final ArrayList<Node> nodes;
     private ArrayList<Entity> entities;
-    private HashMap<String, Integer> distances;
+    private final HashMap<String, Integer> distances;
     private Consumable consumable;
-    private int id;    
+    private final int id;    
     private int status;
 
     /**

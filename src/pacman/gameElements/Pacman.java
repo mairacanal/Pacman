@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import pacman.engine.GameStatus;
 
 /**
- * Classe que representa um elemento do jogo, o Pacman
+ * Classe que representa um elemento do jogo, o Pacman.
  */
 public class Pacman extends Entity {
     
     /**
-     * TODO: definir a velocidade do Pacman
      * Construtor padrão da classe Pacman
      * @param currentNode Nó em que o Pacman nasce
      */
@@ -25,8 +24,9 @@ public class Pacman extends Entity {
     }
     
     /**
-     * Método que inicializa o Pacman no nó adequado
+     * Método que inicializa o Pacman no nó adequado.
      */
+    @Override
     public void born() {
 
         direction = GameConstants.LEFT;
@@ -39,11 +39,15 @@ public class Pacman extends Entity {
     }
     
     /**
-     * Método que move o Pacman no tabuleiro aleatoriamente
+     * Método que move o Pacman no tabuleiro na direção indicada pelo teclado.
      */
+    @Override
     public void move() {
+        
         moveCounter += speed;
-        if(moveCounter >= 1000){
+        
+        if (moveCounter >= 1000) {
+            
             Node previousNode = currentNode;
             ArrayList<Node> nodes = currentNode.getNodes();        
             int newDirection = GameStatus.getPacmanDirection();
@@ -61,15 +65,17 @@ public class Pacman extends Entity {
                 currentNode.addEntity(this);
 
             }
+            
             moveCounter = 0;
+            
         }
         
     }
     
     /**
-     * TODO
-     * Método que "mata" o Pacman
+     * Método que "mata" o Pacman.
      */
+    @Override
     public void die() {
         
     }

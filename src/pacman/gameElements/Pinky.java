@@ -25,6 +25,7 @@ public class Pinky extends Ghost {
      * fantasma está, ou seja, se ele está saindo da casa, perseguindo
      * o Pacman ou voltando para casa.
      */
+    @Override
     public void move() {
         
         moveCounter += speed;
