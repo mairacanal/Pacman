@@ -10,11 +10,11 @@
 
 ### Engine
 
-- Aumentar a velocidade do Blinky a medida que o usuário ganha mais pontos
+- DONE!
 
 ### Documentação
 
 - Fazer Javadoc
-- Fazer manual do usuário
+- Fazer manual do usuário -> DONE!
 - Fazer manual do sistema
 
