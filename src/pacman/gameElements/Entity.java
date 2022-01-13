@@ -16,6 +16,7 @@ public abstract class Entity {
     protected int id;
     protected int speed;
     protected int direction;
+    protected int moveCounter;
     
     /**
      * Construtor padrão da classe abstrata Entity
