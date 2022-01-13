@@ -5,8 +5,6 @@
 
 package pacman.gameElements;
 
-import pacman.engine.GameStatus;
-
 /**
  * Classe que representa um elemento do jogo, o fantasma Blinky 
  */

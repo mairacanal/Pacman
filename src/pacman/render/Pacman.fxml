@@ -29,7 +29,7 @@
     </top>
 
     <center>
-        <Render fx:id="render" rowCount="31" columnCount="28" />
+        <Render fx:id="render"/>
     </center>
 
     <bottom>

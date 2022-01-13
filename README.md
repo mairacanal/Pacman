@@ -6,7 +6,6 @@
 
 - Implementar um botão de pause
 - Tela de Game Over e perguntar ao usuário se quer jogar novamente
-- Tentar copiar menos a inspiração do GitHub
 - Efeitos sonoros
 - Efeito visual de funcionamento da pílula
 

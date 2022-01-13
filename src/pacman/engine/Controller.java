@@ -8,7 +8,6 @@ package pacman.engine;
 import javafx.fxml.FXML;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.application.Platform;
 import java.util.Timer;
@@ -17,6 +16,9 @@ import pacman.render.Render;
 import pacman.gameElements.Map;
 import pacman.gameElements.GameConstants;
 
+/**
+ * 
+ */
 public class Controller implements EventHandler<KeyEvent> {
     
     final private static double FRAMERATE = 5.0;
@@ -38,6 +40,9 @@ public class Controller implements EventHandler<KeyEvent> {
     private final Map map;
     private final Engine engine;
 
+    /**
+     * 
+     */
     public Controller() {
         
         this.map = new Map();
@@ -45,6 +50,9 @@ public class Controller implements EventHandler<KeyEvent> {
         
     }
 
+    /**
+     * 
+     */
     public void initialize() {
         
         this.engine.init();
@@ -53,9 +61,12 @@ public class Controller implements EventHandler<KeyEvent> {
         
     }
 
+    /**
+     * 
+     */
     private void startTimer() {
         
-        this.timer = new java.util.Timer();
+        this.timer = new Timer();
         
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -66,11 +77,14 @@ public class Controller implements EventHandler<KeyEvent> {
             }
         };
 
-        long frameTimeInMilliseconds = (long) (1000.0 / FRAMERATE);
-        this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
+        long frametime = (long) (1000.0 / FRAMERATE);
+        this.timer.schedule(timerTask, 0, frametime);
         
     }
 
+    /**
+     * 
+     */
     private void update() {
         
         this.engine.running();
@@ -82,13 +96,14 @@ public class Controller implements EventHandler<KeyEvent> {
         
     }
 
+    /**
+     * 
+     * @param keyEvent
+     */
     @Override
-    public void handle(KeyEvent keyEvent) {
-             
-        KeyCode code = keyEvent.getCode();
-        
-        if (null != code)
-            switch (code) {
+    public void handle(KeyEvent keyEvent) {             
+                
+        switch (keyEvent.getCode()) {
             case LEFT:
                 GameStatus.setPacmanDirection(GameConstants.LEFT);
                 break;
@@ -103,20 +118,8 @@ public class Controller implements EventHandler<KeyEvent> {
                 break;
             default:
                 break;
-        }        
+        }                
         
-    }
-    
-    public double getBoardWidth() {
-        
-        return Render.CELL_WIDTH * GameConstants.BOARD_HORIZONTAL;
-        
-    }
-
-    public double getBoardHeight() {
-        
-        return Render.CELL_WIDTH * GameConstants.BOARD_VERTICAL;
-        
-    }
+    }   
     
 }
