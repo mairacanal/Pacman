@@ -96,6 +96,7 @@ public class GameRules {
         if (GameStatus.isEatableGhosts() && System.currentTimeMillis() - pillStartTime > GameConstants.POWER_PILL_TIME_MS) {
             
             GameStatus.setEatableGhosts(false);
+            GameConstants.POINTS_BY_GHOST = 200;
             map.getGhosts().forEach((ghost) -> ghost.setEatable(false));
             
         }
@@ -114,12 +115,12 @@ public class GameRules {
     }
     
     /**
-     * TODO
      * Método que possibilita o Pacman comer os fantasmas durante a duração do poder da 
      * pílula de energia. Além disso, contabiliza os pontos que o jogador ganha ao comer
      * um fantasma.
      */
     private void eatGhost() {
+        
         if (GameStatus.isEatableGhosts()) {
             for (Node[] rowNodes : map.getNodes()) {
                 for (Node node : rowNodes) {

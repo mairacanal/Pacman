@@ -24,7 +24,8 @@ public class GameStatus {
     static private int pacmanDirection = GameConstants.LEFT;
 
     /**
-     * 
+     * Método que reinicializa todas as constantes do GameStatus para os seus
+     * valores iniciais.
      */
     public static void resetStatus () {
         
@@ -90,7 +91,7 @@ public class GameStatus {
     }
 
     /**
-     * Método que adiciona uma vida ao usuário
+     * Método que adiciona uma vida ao usuário.
      */
     public static void addLife() {
     
@@ -99,7 +100,7 @@ public class GameStatus {
     }
     
     /**
-     * Método que subtrai uma vida do usuário
+     * Método que subtrai uma vida do usuário.
      */
     public static void loseLife() {
     
@@ -118,7 +119,7 @@ public class GameStatus {
     }
     
     /**
-     * Método que adiciona um pacdot ao número de pacdots previamente comidos pelo jogador
+     * Método que adiciona um pacdot ao número de pacdots previamente comidos pelo jogador.
      */
     public static void addPacdot() {
     
@@ -127,7 +128,7 @@ public class GameStatus {
     }
 
     /**
-     * Método que zera o número de pacdots comidos pelo jogador
+     * Método que zera o número de pacdots comidos pelo jogador.
      */
     public static void resetPacdots() {
 
@@ -216,12 +217,11 @@ public class GameStatus {
     
         GameStatus.gameOver = gameOver;
 
-    }
-    
+    }    
 
     /**
      * Método que desabilita todas as flags, ou seja, atribui false para todas as flags 
-     * do jogo
+     * do jogo.
      */
     public static void resetFlags()  {
 
@@ -250,16 +250,19 @@ public class GameStatus {
         
     }
     
+    /**
+     * Método que soma, ao total de pontos, a pontuação que comer um fantasma
+     * dá ao jogador e calcula a quantidade de pontos que o próximo fantasma vale.
+     */
     public static void addGhostPoints() {
+        
         addPoints(GameConstants.POINTS_BY_GHOST);
         
-        GameConstants.POINTS_BY_GHOST *= 2;
+        GameConstants.POINTS_BY_GHOST *= 2;        
         
-        
-        if(GameConstants.POINTS_BY_GHOST > 1600) {
+        if (GameConstants.POINTS_BY_GHOST == 1600)            
             GameConstants.POINTS_BY_GHOST = 200;
             
-        }
     }
     
 }
