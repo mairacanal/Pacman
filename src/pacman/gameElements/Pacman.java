@@ -20,7 +20,7 @@ public class Pacman extends Entity {
      */
     public Pacman(Node currentNode) {
         
-        super(currentNode, GameConstants.PACMAN, 0, GameConstants.LEFT);
+        super(currentNode, GameConstants.PACMAN, 80, GameConstants.LEFT);
         
     }
     
@@ -42,24 +42,27 @@ public class Pacman extends Entity {
      * Método que move o Pacman no tabuleiro aleatoriamente
      */
     public void move() {
-        
-        Node previousNode = currentNode;
-        ArrayList<Node> nodes = currentNode.getNodes();        
-        int newDirection = GameStatus.getPacmanDirection();
-        
-        if (nodes.get(newDirection).getId() != GameConstants.BLOCKED 
-                && nodes.get(newDirection).getId() != GameConstants.GATE) {            
-            direction = newDirection;                        
+        moveCounter += speed;
+        if(moveCounter >= 1000){
+            Node previousNode = currentNode;
+            ArrayList<Node> nodes = currentNode.getNodes();        
+            int newDirection = GameStatus.getPacmanDirection();
+
+            if (nodes.get(newDirection).getId() != GameConstants.BLOCKED 
+                    && nodes.get(newDirection).getId() != GameConstants.GATE) {            
+                direction = newDirection;                        
+            }
+
+            if (nodes.get(direction).getId() != GameConstants.BLOCKED 
+                    && nodes.get(direction).getId() != GameConstants.GATE) {
+
+                currentNode = nodes.get(direction);
+                previousNode.removeEntity(this);
+                currentNode.addEntity(this);
+
+            }
+            moveCounter = 0;
         }
-        
-        if (nodes.get(direction).getId() != GameConstants.BLOCKED 
-                && nodes.get(direction).getId() != GameConstants.GATE) {
-            
-            currentNode = nodes.get(direction);
-            previousNode.removeEntity(this);
-            currentNode.addEntity(this);
-        
-        }               
         
     }
     
