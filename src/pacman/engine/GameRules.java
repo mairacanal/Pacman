@@ -125,7 +125,9 @@ public class GameRules {
             for (Node[] rowNodes : map.getNodes()) {
                 for (Node node : rowNodes) {
                     if (node.hasPacman() && node.hasGhost()) {
-                          node.getAliveGhosts().forEach((ghost) -> ghost.die());
+                        
+                        node.getBlueGhosts().forEach((ghost) -> ghost.die());
+                        
                     }
                 }
             }

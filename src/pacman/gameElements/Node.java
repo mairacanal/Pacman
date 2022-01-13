@@ -86,25 +86,31 @@ public class Node {
      * @return Array de fantasmas existentes no nó
      */
     public ArrayList<Entity> getGhosts() {
+        
         ArrayList<Entity> ghosts = new ArrayList<>();
-        for(Entity entity : entities) {
+        
+        for (Entity entity : entities) {
             if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.GHOSTGHOST) 
                 ghosts.add(entity);
         }
+        
         return ghosts;
         
     }
     
     /**
-     * Retorna os fantasmas que estão vivos no nó
+     * Retorna os fantasmas que podem ser comidos no nó
      * @return Array de fantasmas existentes no nó
      */
-    public ArrayList<Entity> getAliveGhosts() {
+    public ArrayList<Entity> getBlueGhosts() {
+        
         ArrayList<Entity> ghosts = new ArrayList<>();
-        for(Entity entity : entities) {
-            if (entity.getId() >= GameConstants.BLINKY && entity.getId() <= GameConstants.BLUEGHOST) 
+        
+        for (Entity entity : entities) {
+            if (entity.getId() == GameConstants.BLUEGHOST) 
                 ghosts.add(entity);
         }
+        
         return ghosts;
         
     }

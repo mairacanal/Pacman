@@ -61,7 +61,7 @@ public abstract class Ghost extends Entity {
         currentNode = nextNode;
         currentNode.addEntity(this);
 
-    }
+    }        
     
     /**
      * Método que move o fantasma para fora da casa de forma coordenada
@@ -83,36 +83,6 @@ public abstract class Ghost extends Entity {
 
         }
 
-    }
-
-    /**
-     * Método que atualiza as flags de status do fantasma, dependendo se o fantasma está morto.
-     * @param isEatable Operador lógico que indica se o fantasma está comestível ou não.
-     */
-    public void setEatable(boolean isEatable) {
-        
-        if (!isDead) {
-            
-            if (isEatable) {
-                
-                id = GameConstants.BLUEGHOST;
-                isRunningAway = true;
-                isLeavingHome = false;
-                isChasing = false;
-                isGoingHome = false;   
-                
-            } else {
-                
-                id = normalId;
-                isRunningAway = false;
-                isLeavingHome = false;
-                isChasing = true;
-                isGoingHome = false;  
-                
-            }
-            
-        }
-        
     }
 
     /**
@@ -222,5 +192,35 @@ public abstract class Ghost extends Entity {
         GameStatus.addGhostPoints();
 
     }
+    
+    /**
+     * Método que atualiza as flags de status do fantasma, dependendo se o fantasma está morto.
+     * @param isEatable Operador lógico que indica se o fantasma está comestível ou não.
+     */
+    public void setEatable(boolean isEatable) {
+        
+        if (!isDead) {
+            
+            if (isEatable) {
+                
+                id = GameConstants.BLUEGHOST;
+                isRunningAway = true;
+                isLeavingHome = false;
+                isChasing = false;
+                isGoingHome = false;   
+                
+            } else {
+                
+                id = normalId;
+                isRunningAway = false;
+                isLeavingHome = false;
+                isChasing = true;
+                isGoingHome = false;  
+                
+            }
+            
+        }
+        
+    }   
     
 }
