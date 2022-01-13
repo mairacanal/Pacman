@@ -19,7 +19,7 @@ public class Blinky extends Ghost {
      */
     public Blinky(Node node) {
         
-        super(node, GameConstants.BLINKY, 0, GameConstants.RIGHT);
+        super(node, GameConstants.BLINKY, 40, GameConstants.RIGHT);
         
     }
     
@@ -29,15 +29,18 @@ public class Blinky extends Ghost {
      * o Pacman ou voltando para casa.
      */
     public void move() {
-
-        if (isLeavingHome)
-            leavingHome();
-        else if (isChasing)
-            chase();
-        else if (isGoingHome)
-            goingHome();
-        else if (isRunningAway){
-            runAway();
+        moveCounter += speed + GameStatus.getPoints()/100;
+        if(moveCounter >= 1000){
+            if (isLeavingHome)
+                leavingHome();
+            else if (isChasing)
+                chase();
+            else if (isGoingHome)
+                goingHome();
+            else if (isRunningAway){
+                runAway();
+            }
+            moveCounter = 0;
         }
         
     }

@@ -124,8 +124,7 @@ public class GameRules {
             for (Node[] rowNodes : map.getNodes()) {
                 for (Node node : rowNodes) {
                     if (node.hasPacman() && node.hasGhost()) {
-                          node.getGhosts().forEach((ghost) -> ghost.die());
-                          // FIX ME: Ganhar os pontos
+                          node.getAliveGhosts().forEach((ghost) -> ghost.die());
                     }
                 }
             }

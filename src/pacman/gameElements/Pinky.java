@@ -17,7 +17,7 @@ public class Pinky extends Ghost {
      */
     public Pinky(Node node) {
         
-        super(node, GameConstants.PINKY, 0, GameConstants.LEFT);
+        super(node, GameConstants.PINKY, 80, GameConstants.LEFT);
         
     }    
     
@@ -27,17 +27,19 @@ public class Pinky extends Ghost {
      * o Pacman ou voltando para casa.
      */
     public void move() {
-
-        if (isLeavingHome)
-            leavingHome();
-        else if (isChasing)
-            chase();
-        else if (isGoingHome)
-            goingHome();
-        else if (isRunningAway){
-            runAway();
+        moveCounter += speed;
+        if(moveCounter >= 1000){
+            if (isLeavingHome)
+                leavingHome();
+            else if (isChasing)
+                chase();
+            else if (isGoingHome)
+                goingHome();
+            else if (isRunningAway){
+                runAway();
+            }
+            moveCounter = 0;
         }
-
     }
     
 }

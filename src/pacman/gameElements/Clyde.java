@@ -17,7 +17,7 @@ public class Clyde extends Ghost {
      */
     public Clyde (Node node) {
         
-        super(node, GameConstants.CLYDE, 0, GameConstants.LEFT);
+        super(node, GameConstants.CLYDE, 80, GameConstants.LEFT);
         
     }
     
@@ -27,17 +27,19 @@ public class Clyde extends Ghost {
      * aleatoriamente no tabuleiro ou voltando para casa.
      */
     public void move() {
-
-        if (isLeavingHome)
-            leavingHome();
-        else if (isChasing)
-            random();
-        else if (isGoingHome)
-            goingHome();
-        else if (isRunningAway){
-            runAway();
+        moveCounter += speed;
+        if(moveCounter >= 1000){
+            if (isLeavingHome)
+                leavingHome();
+            else if (isChasing)
+                random();
+            else if (isGoingHome)
+                goingHome();
+            else if (isRunningAway){
+                runAway();
+            }
+            moveCounter = 0;
         }
-        
     }
     
 }

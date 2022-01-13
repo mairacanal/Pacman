@@ -17,7 +17,7 @@ public class Inky extends Ghost {
      */
     public Inky(Node node) {
         
-        super(node, GameConstants.INKY, 0, GameConstants.RIGHT);
+        super(node, GameConstants.INKY, 80, GameConstants.RIGHT);
         
     }
     
@@ -27,15 +27,19 @@ public class Inky extends Ghost {
      * aleatoriamente no tabuleiro ou voltando para casa.
      */
     public void move() {
-
-        if (isLeavingHome)
-            leavingHome();
-        else if (isChasing)
-            random();
-        else if (isGoingHome)
-            goingHome();
-        else if (isRunningAway){
-            runAway();
+        moveCounter += speed;
+        
+        if(moveCounter >= 1000){
+            if (isLeavingHome)
+                leavingHome();
+            else if (isChasing)
+                random();
+            else if (isGoingHome)
+                goingHome();
+            else if (isRunningAway){
+                runAway();
+            }
+            moveCounter = 0;
         }
 
     }
