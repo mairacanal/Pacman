@@ -13,7 +13,6 @@ import pacman.engine.GameStatus;
 public class Blinky extends Ghost {
     
     /**
-     * TODO: definir a velocidade do fantasma
      * Construtor padrão da classe Blinky
      * @param node Nó em que o fantasma nasce
      */
@@ -29,8 +28,11 @@ public class Blinky extends Ghost {
      * o Pacman ou voltando para casa.
      */
     public void move() {
-        moveCounter += speed + GameStatus.getPoints()/100;
-        if(moveCounter >= 1000){
+        
+        moveCounter += speed + GameStatus.getPoints()/200;
+        
+        if (moveCounter >= 1000) {
+        
             if (isLeavingHome)
                 leavingHome();
             else if (isChasing)
@@ -40,7 +42,9 @@ public class Blinky extends Ghost {
             else if (isRunningAway){
                 runAway();
             }
+            
             moveCounter = 0;
+            
         }
         
     }

@@ -11,7 +11,6 @@ package pacman.gameElements;
 public class Pinky extends Ghost {
     
     /**
-     * TODO: definir a velocidade do fantasma
      * Construtor padrão da classe Pinky
      * @param node Nó em que o fantasma nasce
      */
@@ -27,8 +26,11 @@ public class Pinky extends Ghost {
      * o Pacman ou voltando para casa.
      */
     public void move() {
+        
         moveCounter += speed;
-        if(moveCounter >= 1000){
+        
+        if (moveCounter >= 1000) {
+            
             if (isLeavingHome)
                 leavingHome();
             else if (isChasing)
@@ -38,8 +40,11 @@ public class Pinky extends Ghost {
             else if (isRunningAway){
                 runAway();
             }
+            
             moveCounter = 0;
+            
         }
+        
     }
     
 }

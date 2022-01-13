@@ -11,7 +11,6 @@ package pacman.gameElements;
 public class Inky extends Ghost {
 
     /**
-     * TODO: definir a velocidade do fantasma
      * Construtor padrão da classe Inky
      * @param node Nó em que o fantasma nasce
      */
@@ -27,9 +26,11 @@ public class Inky extends Ghost {
      * aleatoriamente no tabuleiro ou voltando para casa.
      */
     public void move() {
+        
         moveCounter += speed;
         
-        if(moveCounter >= 1000){
+        if (moveCounter >= 1000) {
+            
             if (isLeavingHome)
                 leavingHome();
             else if (isChasing)
@@ -39,7 +40,9 @@ public class Inky extends Ghost {
             else if (isRunningAway){
                 runAway();
             }
+            
             moveCounter = 0;
+            
         }
 
     }
