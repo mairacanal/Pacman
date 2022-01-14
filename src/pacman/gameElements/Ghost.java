@@ -95,7 +95,6 @@ public abstract class Ghost extends Entity {
 
         id.add(GameConstants.BLOCKED);
         id.add(GameConstants.GATE);
-        id.add(GameConstants.VOID);
 
         moveNodeByDistance("pacman", id);
 
@@ -144,7 +143,6 @@ public abstract class Ghost extends Entity {
 
         id.add(GameConstants.BLOCKED);
         id.add(GameConstants.GATE);
-        id.add(GameConstants.VOID);
 
         do {
 

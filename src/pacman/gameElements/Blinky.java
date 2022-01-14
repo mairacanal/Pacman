@@ -30,7 +30,7 @@ public class Blinky extends Ghost {
     @Override
     public void move() {
         
-        moveCounter += speed + GameStatus.getPoints()/200;        
+        moveCounter += speed + GameStatus.getPoints()/400;        
         
         if (moveCounter >= 1000) {
             

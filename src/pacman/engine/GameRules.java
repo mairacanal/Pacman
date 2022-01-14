@@ -34,7 +34,7 @@ public class GameRules {
      * Método para execução das regras do jogo a cada movimento 
      */
     public void runMoveRules() {
-
+                
         eat();
         finishPillPower();
         eatGhost();
