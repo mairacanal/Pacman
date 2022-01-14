@@ -18,7 +18,8 @@ import pacman.gameElements.Map;
 import pacman.gameElements.GameConstants;
 
 /**
- * 
+ * Classe que realiza a interface entre o JavaFX e a Engine do jogo, controlando
+ * o Framerate do jogo e os botões da interface.
  */
 public class Controller implements EventHandler<KeyEvent> {
     
@@ -34,7 +35,7 @@ public class Controller implements EventHandler<KeyEvent> {
     private Label lifeLabel;   
     
     @FXML
-    private Label statusLabel;     
+    private Label gameOverLabel;     
     
     @FXML
     private Render render;
@@ -48,7 +49,7 @@ public class Controller implements EventHandler<KeyEvent> {
     private boolean paused;
 
     /**
-     * 
+     * Construtor da classe Controller, que inicializa o mapa e a engine do jogo.
      */
     public Controller() {
         
@@ -58,12 +59,13 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     /**
-     * 
+     * Método que inicializa a engine e a parte gráfica do jogo.
      */
+    @FXML
     public void initialize() {
         
         this.paused = false;
-        this.statusLabel.setVisible(false);
+        this.gameOverLabel.setVisible(false);
         
         GameStatus.resetStatus();
         this.engine.init();
@@ -74,7 +76,8 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     /**
-     * 
+     * Método que inicializa o Timer e agenda uma tarefa para atualizar o jogo
+     * de acordo com o framerate definido.
      */
     private void startTimer() {
         
@@ -95,14 +98,19 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     /**
-     * 
+     * Método que atualiza o jogo a cada rodada, movimentando os personagens e 
+     * renderizando as suas novas posições.
      */
     private void update() {
         
         this.engine.running();
         
-        if (GameStatus.isGameOver())
-            gameOver();
+        if (GameStatus.isGameOver()) {
+            
+            this.gameOverLabel.setVisible(true);
+            this.timer.cancel();   
+            
+        }
         
         this.render.update(this.map);
         this.scoreLabel.setText(String.format("Score %d", GameStatus.getPoints()));
@@ -112,8 +120,9 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     /**
-     * 
-     * @param keyEvent
+     * Método que lida com a entrada de teclado do usuário, indicando a direção
+     * do Pacman.
+     * @param keyEvent Evento de entrada de teclado
      */
     @Override
     public void handle(KeyEvent keyEvent) {             
@@ -138,8 +147,8 @@ public class Controller implements EventHandler<KeyEvent> {
     }   
     
     /**
-     * 
-     * @param event 
+     * Método que "handle" o botão "Pause" da interface, pausando o jogo.
+     * @param event Evento de clique no botão "Pause"
      */
     @FXML
     public void pause(ActionEvent event) {
@@ -154,25 +163,14 @@ public class Controller implements EventHandler<KeyEvent> {
     }
     
     /**
-     * 
-     * @param event 
+     * Método que "handle" o botão "Reset" da interface, reinicializando o jogo.
+     * @param event Evento de clique no botão "Reset"
      */
     @FXML
     public void reset(ActionEvent event) {
                 
         this.timer.cancel();             
         this.initialize();
-        
-    }
-     
-    /**
-     * 
-     */
-    public void gameOver() {
-        
-        this.statusLabel.setText("Game Over");
-        this.statusLabel.setVisible(true);
-        this.timer.cancel();       
         
     }
     
