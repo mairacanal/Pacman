@@ -117,8 +117,12 @@ public class Engine {
         if (GameStatus.isResetGame())
             for (Entity entity : entities)
                 entity.born();
-        else if (GameStatus.isNextLevel())
+        else if (GameStatus.isNextLevel()) {
+            
             init();
+            GameConstants.POWER_PILL_TIME_MS -= 1000;
+            
+        }            
 
         GameStatus.resetFlags();
 
