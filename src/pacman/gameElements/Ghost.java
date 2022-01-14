@@ -71,6 +71,7 @@ public abstract class Ghost extends Entity {
         ArrayList<Integer> id = new ArrayList<>();
 
         id.add(GameConstants.BLOCKED);
+        id.add(GameConstants.VOID);
 
         moveNodeByDistance("ghostSidewalk", id);
 
@@ -94,6 +95,7 @@ public abstract class Ghost extends Entity {
 
         id.add(GameConstants.BLOCKED);
         id.add(GameConstants.GATE);
+        id.add(GameConstants.VOID);
 
         moveNodeByDistance("pacman", id);
 
@@ -114,6 +116,7 @@ public abstract class Ghost extends Entity {
         ArrayList<Integer> id = new ArrayList<>();
 
         id.add(GameConstants.BLOCKED);
+        id.add(GameConstants.VOID);
 
         moveNodeByDistance("home", id);
         
@@ -141,6 +144,7 @@ public abstract class Ghost extends Entity {
 
         id.add(GameConstants.BLOCKED);
         id.add(GameConstants.GATE);
+        id.add(GameConstants.VOID);
 
         do {
 
