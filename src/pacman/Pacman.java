@@ -13,6 +13,11 @@ import javafx.stage.Stage;
 
 public class Pacman extends Application {
     
+    /**
+     * Método para iniciar a aplicação JavaFX e mostrar o Menu principal
+     * @param stage Cena principal da aplicação
+     * @throws Exception Exceção lançada no caso de erros no carregamento dos arquivos
+     */
     @Override
     public void start(Stage stage) throws Exception {
                 
