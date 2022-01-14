@@ -14,7 +14,7 @@
 
 ### Documentação
 
-- Fazer Javadoc
+- Fazer Javadoc -> DONE!
 - Fazer manual do usuário -> DONE!
 - Fazer manual do sistema
 

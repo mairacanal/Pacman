@@ -83,8 +83,8 @@ public class Render extends Group {
         this.pallete.put(GameConstants.FRUIT,  new Image("file:src/pacman/resources/cherry.png"));
         this.pallete.put(GameConstants.FRUIT1, new Image("file:src/pacman/resources/strawberry.png"));
         this.pallete.put(GameConstants.FRUIT2, new Image("file:src/pacman/resources/orange.png"));
-        this.pallete.put(GameConstants.BLUEGHOST,   new Image("file:src/pacman/resources/blueghost.gif"));
-        this.pallete.put(GameConstants.GHOSTGHOST,   new Image("file:src/pacman/resources/eyes.gif"));
+        this.pallete.put(GameConstants.BLUEGHOST, new Image("file:src/pacman/resources/blueghost.gif"));
+        this.pallete.put(GameConstants.GHOSTGHOST, new Image("file:src/pacman/resources/eyes.gif"));
         
         for (int i = 0; i < 4; i++)
             this.pacmanView[i] = new Image(String.format("file:src/pacman/resources/pacman%d.gif", i));
