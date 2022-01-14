@@ -17,9 +17,8 @@ import pacman.gameElements.Node;
 public class GameRules {
 
     private final Map map;
-    private long pillStartTime;
     
-    // TODO: ao invés de ter só o mapa aqui, seria interessante ter o pacman, um array de fantasmas e um array com todos os nós que possuem consumíveis, isso deixaria o jogo mais leve
+    private long pillStartTime;        
 
     /**
      * Construtor padrão da classe GameRules

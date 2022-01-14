@@ -111,6 +111,7 @@ public class Engine {
                 break;
             
         }
+        
         gameRules.runAllRules();
 
         if (GameStatus.isResetGame())
